@@ -1,0 +1,136 @@
+@mixin font($font_name, $file_name, $weight, $style) {
+  @font-face {
+    font-family: $font_name;
+    font-display: swap;
+    src: url(../fonts/#{$file_name}.woff2) format("woff2"),
+      url(../fonts/#{$file_name}.woff) format("woff");
+    font-weight: #{$weight};
+    font-style: #{$style};
+  }
+}
+
+$main: #2f211c;
+$green: #f1fcf6;
+
+@import "fonts";
+
+@import "normalize";
+
+body {
+  font-family: "Montserrat";
+}
+
+.page {
+  color: $main;
+  overflow: hidden;
+  background-color: $green;
+
+  &__container {
+    margin: 0 auto;
+    max-width: 1170px;
+
+    @media (max-width: 1310px) {
+      padding: 0 30px;
+    }
+    @media (max-width: 767px) {
+      padding: 0 15px;
+    }
+  }
+
+  &__title {
+    font-weight: 400;
+    font-size: 60px;
+    line-height: 64px;
+    font-family: "Tenor Sans";
+    word-wrap: break-word;
+
+    @media (max-width: 1290px) {
+      font-size: calc(48px + (12 + 12 * 0.7) * ((100vw - 375px) / 1290));
+      line-height: calc(53px + (11 + 11 * 0.7) * ((100vw - 375px) / 1290));
+    }
+
+    @media (max-width: 480px) {
+      max-width: 90%;
+    }
+  }
+
+  &__top {
+    padding: 38px 0 20px;
+  }
+
+  &__top_new-year {
+    position: relative;
+
+    background-image: url(../img/new-year.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: bottom;
+    z-index: 2;
+    &::after {
+      z-index: -1;
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(
+        180deg,
+        rgba(239, 246, 255, 0) 0%,
+        #eff6ff 100%
+      );
+    }
+  }
+}
+
+/* Контент */
+@import "content";
+
+/* Мессенджеры */
+@import "messengers";
+/* Прочее */
+@import "other";
+
+/* Почему у нас хорошо? */
+@import "why";
+
+/* Стоимость посещения */
+@import "visit";
+
+/* Спойлеры */
+@import "spoilers";
+
+/* Запись на услуги */
+@import "signup";
+
+/* Услуги */
+@import "services";
+
+/* Галерея */
+@import "gallery";
+
+/* Карточки */
+@import "cards";
+
+/* Шапка */
+@import "header";
+
+/* Меню */
+@import "menu";
+
+/* Баннер */
+@import "banner";
+
+/* Подвал */
+@import "footer";
+
+/* Popups */
+@import 'popups';
+
+/* Детально */
+@import 'detail';
+
+/* Карты */
+@import "map";

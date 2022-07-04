@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+	<link rel="stylesheet" href="css/style.css">
+
+	<title>СПА-Салон</title>
+</head>
+
+<body>
+	<div class="page">
+		<div class="background">
+			@@include('html/header.html', {})
+			@@include('html/banner.html', {})
+		</div>
+		@@include('html/why.html', {})
+		@@include('html/price-visit.html', {})
+		@@include('html/signup.html', {'title': 'Запишитесь на посещение по телефону'})
+		@@include('html/rent.html', {})
+		@@include('html/programms/massagi.html', {})
+		@@include('html/programms/spa-proceduri.html', {})
+		@@include('html/programms/spa-man.html', {})
+		@@include('html/programms/emotional.html', {})
+		<div class="gradient-gp">
+			@@include('html/signup.html', {'title': 'Запишитесь на услуги по телефону'})
+		</div>
+		@@include('html/gallery.html', {})
+		<div class="gradient-pg">
+			@@include('html/club.html', {})
+		</div>
+		@@include('html/arenda-compleksami.html', {})
+		@@include('html/party.html', {})
+		@@include('html/restaurant.html', {})
+		<div class="gradient-gp">
+			@@include('html/stocks.html', {})
+		</div>
+		@@include('html/reviews.html', {})
+		@@include('html/footer.html', {})
+		@@include('html/map.html', {})
+		<div class="page__container">
+			<p class="bottom-info">Вся представленная на сайте информация носит исключительно информационный характер и
+				не
+				является публичной офертой.
+				Более подробную информацию по ценам, акциям и скидкам уточняйте у администратора</p>
+		</div>
+		@@include('html/mobile-bottom.html', {})
+		@@include('html/messengers.html', {})
+		@@include('html/popup.html', {})
+	</div>
+	<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+	<script src="./js/details.js"></script>
+	<script src="./js/app.js"></script>
+</body>
+
+</html>

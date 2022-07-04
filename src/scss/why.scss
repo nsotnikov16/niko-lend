@@ -1,0 +1,173 @@
+.section_why {
+  padding: 105px 0 135px;
+  background-image: url(../img/backgrounds/why.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: bottom;
+  @media (max-width: 480px) {
+    background-image: url(../img/backgrounds/why-mobile.png);
+    padding: 45px 0 80px;
+  }
+}
+
+.why {
+  margin-top: 70px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 77px 0;
+  @media (max-width: 900px) {
+    grid-template-columns: repeat(3, 136px);
+    gap: 30px 0;
+  }
+
+  @media (max-width: 600px) {
+    grid-template-columns: repeat(2, 136px);
+    margin-top: 25px;
+  }
+  &__item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    &:hover {
+      cursor: pointer;
+      .why__tooltip {
+        opacity: 1;
+        visibility: visible;
+      }
+    }
+
+    @media (max-width: 600px) {
+      &:nth-child(odd) {
+        &:hover {
+          .why__tooltip {
+            left: 0;
+            &::before {
+              left: 15%;
+            }
+          }
+        }
+      }
+
+      &:nth-child(even) {
+        &:hover {
+          .why__tooltip {
+            right: 0;
+            &::before {
+              right: 15%;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &__block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__circle {
+    width: 136px;
+    height: 136px;
+    @media (max-width: 600px) {
+      width: 120px;
+      height: 120px;
+    }
+    background-color: #007296;
+    background-repeat: no-repeat;
+    border-radius: 50%;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    img {
+      width: 70px;
+      object-fit: contain;
+      object-position: center;
+    }
+  }
+
+  &__block-title {
+    margin-top: 15px;
+    font-family: "Open Sans";
+    font-style: normal;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 24px;
+    text-align: center;
+
+    color: #007296;
+
+    @media (max-width: 480px) {
+      font-size: 16px;
+      line-height: 22px;
+    }
+  }
+
+  &__tooltip {
+    opacity: 0;
+    visibility: hidden;
+    position: absolute;
+    top: calc(100% + 15px);
+    transition: all 0.25s linear;
+    padding: 35px 30px;
+    width: 400px;
+    background: #ffffff;
+    border: 1px solid #007296;
+    box-shadow: 3px 8px 14px rgba(0, 0, 0, 0.11);
+    border-radius: 20px;
+    background-color: #fff;
+    z-index: 1;
+
+    &::before {
+      content: "";
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      transform: rotate(45deg);
+      border-top: 1px solid #007296;
+      border-left: 1px solid #007296;
+      bottom: calc(100% - 10px);
+      left: 47%;
+      z-index: 2;
+      background-color: white;
+    }
+
+    @media (max-width: 1310px) {
+      display: none;
+    }
+    @media (max-width: 600px) {
+      display: block;
+      max-width: 345px;
+      &::before {
+        left: initial;
+      }
+    }
+  }
+
+  &__tooltip-title {
+    font-family: "Philosopher";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 27px;
+    text-align: center;
+    margin-bottom: 13px;
+    position: relative;
+  }
+
+  &__tooltip-text {
+    font-family: "Montserrat";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    text-align: center;
+  }
+}
