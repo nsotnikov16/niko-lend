@@ -8,19 +8,97 @@
 	<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
 	<link rel="stylesheet" href="css/style.css">
 
-	<title>СПА-Салон</title>
+	<title>Нико-Медиа</title>
 </head>
 
 <body>
 	<div class="page">
 		<div class="background">
 			<header class="header">
-				<p class="header__location">Сочи</p>
-				<a href="tel:+73462550877" class="phone">+7 (3462) 550-877</a>
-				<img src="" alt="Logo" class="logo">
+				<div class="page__container">
+					<p class="header__location">
+						<svg>
+							<use href="./img/icons/icons.svg#map"></use>
+						</svg>
+						Сочи
+					</p>
+					<a href="tel:+73462550877" class="phone">
+						<svg>
+							<use href="./img/icons/icons.svg#phone"></use>
+						</svg>
+						<span>+7 (3462) 550-877</span>
+					</a>
+					<a href="/" class="logo"></a>
+					<a href="./cart.html" class="header__cart">
+						<svg>
+							<use href="./img/icons/icons.svg#cart"></use>
+						</svg>
+						<span>Корзина</span>
+						<div class="header__cart-count">2</div>
+					</a>
+				</div>
 			</header>
-			<div class="banner"></div>
+			<div class="banner">
+				<div class="page__container">
+					<h1 class="page__title">Реклама на билбордах в Сочи от 12 000 ₽</h1>
+					<div class="banner__list">
+
+						<li>
+							<span>Конструкций</span>
+							<span>28 шт.</span>
+						</li>
+						<li>
+							<span>Средняя стоимоcть</span>
+							<span>27 000 ₽</span>
+						</li>
+						<li>
+							<span>Горящих предложений</span>
+							<span>10 шт.</span>
+						</li>
+					</div>
+					<a href="#maps" class="banner__button">
+						<svg>
+							<use href="./img/icons/icons.svg#location"></use>
+						</svg>
+						Выбрать билборд на карте
+					</a>
+				</div>
+			</div>
 		</div>
+
+		<section class="section hot">
+			<div class="page__container">
+				<h2 class="section__title">Горящие предложения</h2>
+				<p class="section__subtitle hot__subtitle background-gray">
+					Для Вас мы подобрали <b class="color">10 конструкций</b> с <b class="color">самой большой
+						скидкой</b>.<br>
+					Спрос на такие конструкции высокий, поэтому в свободном статусе они находятся не долго.
+					<b class="color">Бронируйте места</b> заранее, при этом все детали можно обсудить с менеджером в
+					личной
+					беседе
+				</p>
+
+				<div class="swiper hot__gallery">
+					<div class="swiper-wrapper">
+						<div class="swiper-slide">
+							<div class="hot__item">
+								<img src="" alt="" class="hot__img">
+								<div class="hot__info">
+									<h3 class="hot__title">Центральная магистраль, 25. СОК «Звёздный»</h3>
+									<div class="hot__prices">
+										
+										<p class="hot__price">19 000 ₽</p>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="swiper-slide"></div>
+						<div class="swiper-slide"></div>
+						<div class="swiper-slide"></div>
+					</div>
+				</div>
+			</div>
+		</section>
 	</div>
 	<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 	<script src="./js/app.js"></script>

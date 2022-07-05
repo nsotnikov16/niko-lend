@@ -6,10 +6,52 @@
     font-size: 48px;
     line-height: 140%;
     color: #0c151e;
+    margin-bottom: 30px;
+    text-align: center;
+  }
+
+  &__subtitle {
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 140%;
+    color: #0c151e;
+    max-width: 760px;
+    text-align: center;
+    margin: 0 auto;
   }
 }
 
-
 .background-gray {
-  background-color: #EFF6FF;
+  background-color: #eff6ff;
+}
+
+.background {
+  background-image: url(../img/banner.png);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.phone {
+  display: flex;
+  align-items: center;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 24px;
+  svg {
+    width: 18px;
+    height: 18px;
+    margin-right: 9px;
+  }
+}
+
+.logo {
+  background-image: url(../img/logo.png);
+  background-size: 100%;
+  width: 163px;
+  height: 22.78px;
+}
+
+.color {
+  color: #01579b;
 }
