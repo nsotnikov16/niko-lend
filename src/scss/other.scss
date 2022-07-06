@@ -17,7 +17,7 @@
     color: #0c151e;
     max-width: 760px;
     text-align: center;
-    margin: 0 auto;
+    margin: 0 auto 35px;
   }
 }
 
@@ -42,6 +42,13 @@
     width: 18px;
     height: 18px;
     margin-right: 9px;
+    fill: white;
+  }
+  &:hover {
+    color: #FF0E15;
+    svg {
+      fill:#FF0E15;
+    }
   }
 }
 
@@ -54,4 +61,29 @@
 
 .color {
   color: #01579b;
+}
+
+.sale {
+  background: rgba(255, 14, 21, 0.8);
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5px;
+  font-weight: 700;
+  font-size: 13px;
+  color: #ffffff;
+
+  &_icon {
+    &::before {
+      content: "";
+      display: block;
+      width: 12px;
+      height: 15px;
+      background-repeat: no-repeat;
+      background-size: 12px 12px;
+      background-image: url(../img/sale.svg);
+      margin-right: 4.25px;
+    }
+  }
 }

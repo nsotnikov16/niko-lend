@@ -435,7 +435,7 @@ body {
   color: #0c151e;
   max-width: 760px;
   text-align: center;
-  margin: 0 auto;
+  margin: 0 auto 35px;
 }
 
 .background-gray {
@@ -460,6 +460,13 @@ body {
   width: 18px;
   height: 18px;
   margin-right: 9px;
+  fill: white;
+}
+.phone:hover {
+  color: #FF0E15;
+}
+.phone:hover svg {
+  fill: #FF0E15;
 }
 
 .logo {
@@ -471,6 +478,28 @@ body {
 
 .color {
   color: #01579b;
+}
+
+.sale {
+  background: rgba(255, 14, 21, 0.8);
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5px;
+  font-weight: 700;
+  font-size: 13px;
+  color: #ffffff;
+}
+.sale_icon::before {
+  content: "";
+  display: block;
+  width: 12px;
+  height: 15px;
+  background-repeat: no-repeat;
+  background-size: 12px 12px;
+  background-image: url(../img/sale.svg);
+  margin-right: 4.25px;
 }
 
 .header {
@@ -594,4 +623,75 @@ body {
   padding: 25px 35px;
   border-radius: 27px;
   max-width: 830px;
+}
+.hot__item {
+  width: 270px;
+  position: relative;
+}
+.hot__info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 35px 7px 22px 20px;
+  background: #eff6ff;
+  margin-top: -15px;
+  border-radius: 0 0 10px 10px;
+}
+.hot__sale {
+  position: absolute;
+  top: 14px;
+  left: 10px;
+}
+.hot__img {
+  background: #f7f7f7;
+  box-shadow: 0px 24px 18px -17px rgba(0, 0, 0, 0.14);
+  border-radius: 17px;
+  width: 100%;
+  height: 208px;
+  object-fit: cover;
+  object-position: center;
+}
+.hot__title {
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 130%;
+  color: #0c151e;
+  margin-bottom: 22px;
+}
+.hot__price {
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 130%;
+  color: #ff0e15;
+}
+.hot__price_old {
+  font-size: 16px;
+  text-decoration-line: line-through;
+  font-weight: 400;
+  color: rgba(12, 21, 30, 0.5);
+}
+.hot__gallery-container {
+  position: relative;
+}
+.hot__gallery-container .swiper-button-next,
+.hot__gallery-container .swiper-button-prev {
+  color: #0c151e;
+}
+.hot__gallery-container .swiper-button-next::after,
+.hot__gallery-container .swiper-button-prev::after {
+  font-size: 20px;
+  font-weight: 900;
+}
+.hot__gallery-container .swiper-button-next {
+  right: -55px;
+}
+.hot__gallery-container .swiper-button-prev {
+  left: -55px;
+}
+.hot__gallery .swiper-scrollbar {
+  display: none;
+}
+.hot__gallery .swiper-pagination {
+  position: initial;
+  margin-top: 15px;
 }
