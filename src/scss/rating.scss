@@ -3,7 +3,16 @@
     align-items: flex-end;
     font-style: 40px;
     line-height: 0.75;
+    transition: opacity 0.3s ease 0s;
     &_set {
+        .rating__active,
+        .rating__item {
+            cursor: pointer;
+        }
+    }
+
+    &_sending {
+        opacity: 0.2;
     }
 
     &__body {
@@ -11,6 +20,7 @@
         &::before {
             content: "★★★★★" /* '⭐⭐⭐⭐⭐' */;
             display: block;
+            color: rgba(12, 21, 30, 0.2);
         }
     }
 
@@ -28,7 +38,7 @@
             height: 100%;
             top: 0;
             left: 0;
-            color: #ffd300;
+            color: #1890ff;
         }
     }
 

@@ -49,7 +49,6 @@ function init() {
 
     addresses.forEach(
         ({ balloonContentLayout, coordinates }, ind) => {
-            console.log(balloonContentLayout)
             myPlacemarkWithContent = new ymaps.Placemark(
                 coordinates,
                 {},
@@ -71,9 +70,87 @@ function init() {
 }
 
 // Рейтинг
-const ratings = document.querySelectorAll('.rating')
-if (ratings.length > 0) {
-    ratings.forEach(rating => {
-        const startRating = rating.dataset.rating;
-    })
+class Rating {
+    constructor(element) {
+        this.rating = element
+        this.ratingItems = this.rating.querySelectorAll('.rating__item')
+        this.ratingActive
+        this.ratingValue
+        this.initRatingVars()
+        this.setRatingActiveWidth()
+        this.setEventListeners()
+    }
+
+    // Инициализируем переменные
+    initRatingVars() {
+        this.ratingActive = this.rating.querySelector('.rating__active')
+        this.ratingValue = Number(this.rating.dataset.rating)
+    }
+
+    // Обновление активных звёзд
+    setRatingActiveWidth(index = this.ratingValue) {
+        this.ratingActive.style.width = `${index / 0.05}%`
+    }
+
+    async setRatingValue(value) {
+        if (!this.rating.classList.contains('rating_sending')) {
+            this.rating.classList.add('rating_sending')
+
+
+            // ОТправка данных (value) на сервер
+            let response = await fetch('rating.json', {
+                method: 'GET'
+                // Здесь нужные параметры для сервера
+            })
+
+            // Ответ с сервера должен прилететь в формате json, с числовым значением рейтинга
+
+            if (response.ok) {
+                const result = await response.json()
+
+                // Получаем новый рейтинг
+                const newRating = result.newRating;
+
+                // Обновление среднего результата
+                this.ratingValue = newRating
+
+                this.setRatingActiveWidth()
+
+                this.rating.classList.remove('rating_sending')
+            } else {
+                alert('Ошибка');
+                this.rating.classList.remove('rating_sending')
+            }
+        }
+    }
+
+    // Слушатели
+    setEventListeners() {
+        this.ratingItems.forEach((ratingItem, index) => {
+            // Наведенные звёзды
+            ratingItem.addEventListener('mouseenter', () => {
+                this.initRatingVars()
+                this.setRatingActiveWidth(ratingItem.value)
+            })
+
+            // Вернуть рейтинг, если передумали
+            ratingItem.addEventListener('mouseleave', () => this.setRatingActiveWidth())
+
+            // Клик по звезде
+            ratingItem.addEventListener('click', () => {
+                this.initRatingVars()
+
+                // Если аякс (у блока рейтинга должен быть атрибут data-ajax="true") - отправляем на сервер,
+                // иначе просто через js ставим новый рейтинг
+                if (this.rating.dataset.ajax) {
+                    this.setRatingValue(ratingItem.value)
+                } else {
+                    this.ratingValue = index + 1
+                    this.setRatingActiveWidth()
+                }
+            })
+        })
+    }
 }
+const ratings = document.querySelectorAll('.rating')
+if (ratings.length > 0) ratings.forEach(rating => new Rating(rating))

@@ -38,7 +38,7 @@
 
   .page__container {
     display: grid;
-    grid-template-columns: max-content 1fr 1fr 1fr;
+    grid-template-columns: max-content max-content 1fr 1fr;
     align-items: center;
   }
 
