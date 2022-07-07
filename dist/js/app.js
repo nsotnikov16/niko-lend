@@ -7,6 +7,7 @@ const hotGallery = new Swiper('.hot__gallery', {
     // If we need pagination
     pagination: {
         el: '.hot__gallery .swiper-pagination',
+        clickable: true,
     },
 
     // Navigation arrows
@@ -24,13 +25,7 @@ const hotGallery = new Swiper('.hot__gallery', {
 /* Яндекс карты */
 var addresses = [
     {
-        balloonContentLayout: `
-        <div style="background-color: white; color: black; z-index:999; width: 500px; height: 300px;">
-            <h5>Рекламный щит 3x6 (статика)</h5>
-            <p>N1455-A</p>
-            <p>г.Сочи, напротив дома Ленина 51. </p>
-        </div>
-    `, coordinates: [43.428791, 39.919685]
+        /* balloonContentLayout: , */ coordinates: [43.428791, 39.919685]
     }
 ];
 
@@ -73,5 +68,12 @@ function init() {
             myMap.geoObjects.add(myPlacemarkWithContent);
         }
     );
+}
 
+// Рейтинг
+const ratings = document.querySelectorAll('.rating')
+if (ratings.length > 0) {
+    ratings.forEach(rating => {
+        const startRating = rating.dataset.rating;
+    })
 }
