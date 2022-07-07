@@ -159,30 +159,31 @@
 			<div class="map" id="map" style="height: 600px;"></div>
 
 
-
-			<div class="item">
-				<h4 class="item__title">Рекламный щит 3x6 (статика)</h4>
-				<div class="item__container">
-					<div class="tabs">
-						<div class="tab tab_active">Сторона А</div>
-						<div class="tab">Сторона Б</div>
+			
+				<div class="item">
+					<h4 class="item__title">Рекламный щит 3x6 (статика)</h4>
+					<div class="tabs item__tabs">
+						<div class="tabs__tab tabs__tab_active" data-tab="1" onclick="tabClick(this)">Сторона А</div>
+						<div class="tabs__tab" data-tab="2" onclick="tabClick(this)">Сторона Б</div>
 					</div>
-					<div class="tabs__images">
-						<img class="tabs__image tabs__image_active" src="./img/hot/4.png" alt="Image1">
-						<img class="tabs__image" src="./img/hot/3.png" alt="Image2">
-					</div>
-					<div class="item__info">
-						<div class="item__info-top">
-							<p class="item__article">N1455-A</p>
-							<div class="rating rating_set" data-rating="3.8">
-								<div class="rating__body">
-									<div class="rating__active"></div>
-									<div class="rating__items">
-										<input type="radio" class="rating__item" value="1" name="rating">
-										<input type="radio" class="rating__item" value="2" name="rating">
-										<input type="radio" class="rating__item" value="3" name="rating">
-										<input type="radio" class="rating__item" value="4" name="rating">
-										<input type="radio" class="rating__item" value="5" name="rating">
+					<div class="item__container">
+						<div class="tabs__images item__tabs-images">
+							<img class="tabs__image tabs__image_active"  src="./img/hot/4.png" alt="Image1" data-tab="1">
+							<img class="tabs__image" src="./img/hot/3.png"  alt="Image2" data-tab="2">
+						</div>
+						<div class="item__info">
+							<div class="item__info-top">
+								<p class="item__article">N1455-A</p>
+								<div class="rating rating_set" data-rating="3.8">
+									<div class="rating__body">
+										<div class="rating__active"></div>
+										<div class="rating__items">
+											<input type="radio" class="rating__item" value="1" name="rating">
+											<input type="radio" class="rating__item" value="2" name="rating">
+											<input type="radio" class="rating__item" value="3" name="rating">
+											<input type="radio" class="rating__item" value="4" name="rating">
+											<input type="radio" class="rating__item" value="5" name="rating">
+										</div>
 									</div>
 								</div>
 							</div>
@@ -192,47 +193,46 @@
 								</svg>
 								<span>г.Сочи, напротив дома Ленина 51.</span>
 							</div>
+							<ul class="months">
+								<li class="months__item months__item_free">
+									<input id="item1" type="checkbox" name="months_1455-А">
+									<label for="item1">фев <span class="percent">%</span></label>
+								</li>
+								<li class="months__item months__item_busy">
+									<input id="item2" type="checkbox" name="months_1455-А" disabled>
+									<label for="item2">мар</label>
+								</li>
+								<li class="months__item months__item_busy">
+									<input id="item3" type="checkbox" name="months_1455-А" disabled>
+									<label for="item3">апр</label>
+								</li>
+								<li class="months__item months__item_free">
+									<input id="item4" type="checkbox" checked name="months_1455-А">
+									<label for="item4">июн</label>
+								</li>
+								<li class="months__item months__item_req">
+									<input id="item5" type="checkbox" checked name="months_1455-А">
+									<label for="item5">июл</label>
+								</li>
+								<li class="months__item months__item_req">
+									<input id="item6" type="checkbox" name="months_1455-А">
+									<label for="item6">авг</label>
+								</li>
+							</ul>
 						</div>
-						<ul class="months">
-							<li class="months__item months__item_free">
-								<input type="checkbox" name="months_1455-А">
-								<label>фев <span class="percent">%</span></label>
-							</li>
-							<li class="months__item months__item_busy">
-								<input type="checkbox" name="months_1455-А">
-								<label>мар</label>
-							</li>
-							<li class="months__item months__item_busy">
-								<input type="checkbox" name="months_1455-А">
-								<label>апр</label>
-							</li>
-							<li class="months__item months__item_free">
-								<input type="checkbox" checked name="months_1455-А">
-								<label>июн</label>
-							</li>
-							<li class="months__item months__item_req">
-								<input type="checkbox" checked name="months_1455-А">
-								<label>июл</label>
-							</li>
-							<li class="months__item months__item_req">
-								<input type="checkbox" name="months_1455-А">
-								<label>авг</label>
-							</li>
-						</ul>
+					</div>
+					<div class="prices item__prices">
+						<p class="price price_old">24 700 ₽
+							<span class="sale sale_icon">-25%</span>
+						</p>
+						<p class="price">19 000 ₽ / мес</p>
+					</div>
+					<div class="item__buttons">
+						<button class="btn btn_red">В корзину</button>
+						<button class="btn">Подробнее</button>
 					</div>
 				</div>
-				<div class="prices">
-					<p class="price price_old">24 700 ₽
-						<div class="sale sale_icon prices__sale">-25%</div>
-					</p>
-					<p class="price">19 000 ₽ / мес</p>
-				</div>
-				<div class="item__buttons">
-					<button class="btn btn_cart">В корзину</button>
-					<button class="btn">Подробнее</button>
-				</div>
-
-			</div>
+			
 	</div>
 
 

@@ -25,7 +25,7 @@ const hotGallery = new Swiper('.hot__gallery', {
 /* Яндекс карты */
 var addresses = [
     {
-        /* balloonContentLayout: , */ coordinates: [43.428791, 39.919685]
+       /*  balloonContentLayout: document.querySelector('template').innerHTML, */ coordinates: [43.428791, 39.919685]
     }
 ];
 
@@ -162,3 +162,18 @@ if (monthItemsTest.length > 0) monthItemsTest.forEach((item, ind) => {
     item.querySelector('label').setAttribute('for', `${ind}`)
     item.querySelector('input').setAttribute('id', `${ind}`)
 })
+
+// Табы
+function tabClick(tab) {
+    const tabs = document.querySelectorAll('.tabs__tab')
+    const images = document.querySelectorAll('.tabs__image')
+    tabs.forEach(item => {
+        item.classList.remove('tabs__tab_active')
+        if (item === tab) tab.classList.add('tabs__tab_active')
+    })
+
+    images.forEach(item => {
+        item.classList.remove('tabs__image_active')
+        if (item.dataset.tab === tab.dataset.tab) item.classList.add('tabs__image_active')
+    })
+}
