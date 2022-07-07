@@ -20,9 +20,41 @@
             label {
                 background: rgba(12, 21, 30, 0.1);
                 color: rgba(12, 21, 30, 0.35);
-            }
+                cursor: help !important;
+                &:hover {
+                    &::before {
+                        content: "";
+                        position: absolute;
+                        width: 6px;
+                        height: 6px;
+                        background-color: #5a6168;
+                        top: 100%;
+                        left: 50%;
 
-            input:checked + label {
+                        transform: rotate(45deg) translateY(4px);
+                    }
+
+                    &::after {
+                        content: "занято";
+                        position: absolute;
+                        background-color: #5a6168;
+                        color: white;
+                        text-align: center;
+                        width: 52px;
+                        height: 17px;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        font-weight: 400;
+                        font-size: 12px;
+                        top: 100%;
+                        left: 4px;
+                        transform: translateY(6px);
+                        border-radius: 2px;
+                        display: block;
+                        z-index: 999;
+                    }
+                }
             }
         }
 
@@ -37,6 +69,9 @@
                     height: 16px;
                     border-radius: 4px;
                     border: 1px solid #b3babf;
+                    margin-right: 4px;
+                    text-align: center;
+                    background-color: white;
                 }
             }
 
@@ -51,9 +86,12 @@
                 &::after {
                     content: "по запросу";
                     position: absolute;
+                    top: 100%;
                     left: 2px;
-                    bottom: 2px;
+                    bottom: -3px;
                     color: #2e9344;
+                    font-size: 9.5px;
+                    text-align: center;
                 }
             }
         }
@@ -70,6 +108,7 @@
         align-items: center;
         justify-content: center;
         cursor: pointer;
+        user-select: none;
     }
 
     input {
@@ -77,5 +116,21 @@
     }
 
     .percent {
+        position: absolute;
+        right: -7px;
+        top: -7px;
+        background: #ff3e44;
+        border: 2px solid #eff6ff;
+        width: 16px;
+        height: 16px;
+        border-radius: 50%;
+        color: white;
+        font-weight: 700;
+        font-size: 10px;
+        text-align: center;
+    }
+
+    input:checked + label .percent {
+        border: 2px solid white;
     }
 }
