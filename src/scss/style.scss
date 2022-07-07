@@ -42,11 +42,20 @@ body {
   }
 }
 
+/* Прочее */
 @import "other";
+
+/* Рейтинг */
 @import "rating";
 
+/* Месяца */
+@import "months";
+
+/* Шапка */
 @import "header";
 
+/* Баннер */
 @import "banner";
 
+/* Горящие предложения */
 @import "hot";

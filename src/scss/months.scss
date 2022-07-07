@@ -1,0 +1,81 @@
+.months {
+    display: grid;
+    grid-template-columns: repeat(3, 60px);
+    gap: 12px;
+    &__item {
+        &_free {
+            label {
+                background: #ffffff;
+                color: #01579b;
+            }
+
+            input:checked + label {
+                background: #1890ff;
+                border: 1px solid #1890ff;
+                color: white;
+            }
+        }
+
+        &_busy {
+            label {
+                background: rgba(12, 21, 30, 0.1);
+                color: rgba(12, 21, 30, 0.35);
+            }
+
+            input:checked + label {
+            }
+        }
+
+        &_req {
+            label {
+                background: rgba(12, 21, 30, 0.1);
+                color: rgba(12, 21, 30, 0.35);
+                &::before {
+                    content: "";
+                    display: block;
+                    width: 16px;
+                    height: 16px;
+                    border-radius: 4px;
+                    border: 1px solid #b3babf;
+                }
+            }
+
+            input:checked + label {
+                background-color: rgba(46, 147, 68, 0.1);
+                color: #2e9344;
+                &::before {
+                    content: "\2714";
+                    border: 1px solid #2e9344;
+                }
+
+                &::after {
+                    content: "по запросу";
+                    position: absolute;
+                    left: 2px;
+                    bottom: 2px;
+                    color: #2e9344;
+                }
+            }
+        }
+    }
+
+    label {
+        height: 36px;
+        border-radius: 6px;
+        border: 1px solid #e5e7eb;
+        font-weight: 400;
+        font-size: 14px;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+    }
+
+    input {
+        display: none;
+    }
+
+    .percent {
+    }
+}

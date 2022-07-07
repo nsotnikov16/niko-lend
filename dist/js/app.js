@@ -154,3 +154,11 @@ class Rating {
 }
 const ratings = document.querySelectorAll('.rating')
 if (ratings.length > 0) ratings.forEach(rating => new Rating(rating))
+
+
+// Временно (потом удалить)
+const monthItemsTest = document.querySelectorAll('.months__item')
+if (monthItemsTest.length > 0) monthItemsTest.forEach((item, ind) => {
+    item.querySelector('label').setAttribute('for', `${ind}`)
+    item.querySelector('input').setAttribute('id', `${ind}`)
+})
