@@ -63,6 +63,9 @@ body {
 /* Горящие предложения */
 @import "hot";
 
+/* Фильтр */
+@import 'filter';
+
 /* Элементы на карте */
 @import "item";
 
@@ -74,3 +77,6 @@ body {
 
 /* Спойлеры */
 @import "spoiler";
+
+/* Подвал */
+@import "footer";

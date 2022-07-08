@@ -308,3 +308,13 @@ if (spoilers.length > 0) {
         })
     })
 }
+
+const selectChoose = document.querySelectorAll('.select__choose')
+if (selectChoose.length > 0) selectChoose.forEach((item, ind) => {
+    item.id = 'choose_' + ind
+    new Swiper("#" + item.id, {
+        slidesPerView: "auto",
+        freeMode: true,
+        mousewheel: true,
+    })
+})

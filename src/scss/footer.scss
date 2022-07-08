@@ -1,27 +1,53 @@
 .footer {
+    color: #ffffff;
     background: #01579b;
     padding: 52px 0 32px;
     &__container {
         display: grid;
         grid-template-columns: max-content 1fr max-content;
-        gap: 20px;
+        gap: 30px;
+        justify-items: baseline;
+        align-items: center;
+    }
+
+    &__logo {
+        justify-self: start;
+        margin-left: 0;
+    }
+
+    &__phone {
+        justify-self: center;
     }
 
     &__info {
+        font-weight: 400;
+        font-size: 13px;
+        line-height: 24px;
+        text-align: right;
     }
 
     &__email {
+        margin-bottom: 11px;
     }
 
     &__address {
     }
 
+    &__not,
+    &__politic,
+    &__dev {
+        opacity: 0.5;
+        font-size: 13px;
+        line-height: 130%;
+    }
     &__not {
     }
 
-    &__politic {
+    &__politic, &__dev {
+        text-decoration: underline;
     }
 
     &__dev {
+        justify-self: end;
     }
 }
