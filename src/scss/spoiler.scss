@@ -1,0 +1,71 @@
+.spoiler {
+    &:first-child {
+        border-top: 2px solid #e5e7eb;
+    }
+
+    border-bottom: 2px solid #e5e7eb;
+
+    &__top {
+        padding: 30px 30px 30px 0;
+        display: flex;
+        justify-content: space-between;
+        cursor: pointer;
+    }
+
+    &__name {
+        font-weight: 500;
+        font-size: 20px;
+        line-height: 140%;
+        color: #0c151e;
+    }
+
+    &__btn {
+        transform: rotate(0);
+        transition: transform 0.3s ease-in;
+        &::before,
+        &::after {
+            content: "";
+            display: block;
+            width: 26px;
+            height: 2px;
+            background: #01579b;
+            border-radius: 2px;
+            opacity: 0.8;
+        }
+
+        &::before {
+        }
+        &::after {
+            transform: rotate(90deg) translateX(-2px);
+        }
+    }
+
+    &__bottom {
+        max-height: 0;
+        transform: translateY(-10%);
+        overflow: hidden;
+        opacity: 0;
+        transition: opacity 0.25s ease, transform 0.25s ease-in-out;
+    }
+    .content {
+    }
+
+    &_open {
+        .spoiler__bottom {
+            max-height: initial;
+            transform: translateY(0);
+            overflow: visible;
+            opacity: 1;
+        }
+
+        .spoiler__btn {
+            transform: rotate(180deg);
+            &::after {
+                opacity: 0;
+            }
+        }
+    }
+}
+
+.spoilers {
+}

@@ -1,0 +1,33 @@
+.content {
+    color: black;
+    font-size: 18px;
+    line-height: 140%;
+    p {
+        margin-bottom: 24px;
+    }
+    h2 {
+        font-size: 24px;
+        line-height: 34px;
+        margin-bottom: 24px;
+    }
+
+    ul {
+        margin-bottom: 24px;
+    }
+
+    li {
+        display: flex;
+        &::before {
+            transform: translateY(8px);
+            display: block;
+            flex-shrink: 0;
+            content: "";
+            width: 8px;
+            height: 8px;
+            background: #01579b;
+            border-radius: 2px;
+            margin-right: 12px;
+        }
+        margin-bottom: 15px;
+    }
+}

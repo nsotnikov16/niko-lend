@@ -1,0 +1,27 @@
+.footer {
+    background: #01579b;
+    padding: 52px 0 32px;
+    &__container {
+        display: grid;
+        grid-template-columns: max-content 1fr max-content;
+        gap: 20px;
+    }
+
+    &__info {
+    }
+
+    &__email {
+    }
+
+    &__address {
+    }
+
+    &__not {
+    }
+
+    &__politic {
+    }
+
+    &__dev {
+    }
+}

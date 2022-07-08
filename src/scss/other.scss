@@ -1,5 +1,5 @@
 .section {
-  padding: 90px 0;
+  padding: 90px 0 90px;
   &__title {
     font-style: normal;
     font-weight: 700;
@@ -132,7 +132,7 @@
   display: flex;
   align-items: center;
   &__tab {
-    padding: 9px 12px;
+    padding: 9px 10px;
     background: #ffffff;
     border: 1px solid #e5e7eb;
     border-radius: 6px;
@@ -185,4 +185,21 @@
     box-shadow: 0px 13px 35px -13px rgba(220, 45, 34, 0.59);
     color: white;
   }
+
+  &_all {
+    font-weight: 500;
+    font-size: 14px;
+    margin: 7px auto 0;
+    svg {
+      flex-shrink: 0;
+      margin-right: 14px;
+      width: 22px;
+      height: 22px;
+      fill: #01579b;
+    }
+  }
+}
+
+.pb0{
+  padding-bottom: 0;
 }

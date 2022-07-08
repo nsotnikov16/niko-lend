@@ -42,6 +42,9 @@ body {
   }
 }
 
+/* Контент */
+@import "content";
+
 /* Прочее */
 @import "other";
 
@@ -62,3 +65,12 @@ body {
 
 /* Элементы на карте */
 @import "item";
+
+/* Таблицы */
+@import "table";
+
+/* Пагинация */
+@import "pagination";
+
+/* Спойлеры */
+@import "spoiler";
