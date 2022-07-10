@@ -29,7 +29,7 @@ var addresses = [
     }
 ];
 
-ymaps.ready(init)
+if(document.querySelector('#map')) ymaps.ready(init)
 function init() {
     // Создание карты.
     var myMap = new ymaps.Map(
@@ -309,12 +309,60 @@ if (spoilers.length > 0) {
     })
 }
 
-const selectChoose = document.querySelectorAll('.select__choose')
-if (selectChoose.length > 0) selectChoose.forEach((item, ind) => {
-    item.id = 'choose_' + ind
-    new Swiper("#" + item.id, {
-        slidesPerView: "auto",
-        freeMode: true,
-        mousewheel: true,
+
+/* Селекты */
+const selects = document.querySelectorAll('.select')
+if (selects.length > 0) {
+    selects.forEach((select, index) => {
+        const filter = select.closest('.filter__item')
+        const choose = select.querySelector('.select__choose')
+        const chooseText = select.querySelector('.select__choose-text')
+        const chooseWrapper = choose.querySelector('.swiper-wrapper')
+        const btn = select.querySelector('.select__btn')
+        choose.id = 'choose_' + index
+
+        let params = {
+            slidesPerView: "auto",
+            freeMode: true,
+            mousewheel: true,
+        }
+
+        const swiper = new Swiper("#" + choose.id, params)
+        btn.addEventListener('click', () => select.classList.toggle('select_open'))
+
+        const points = select.querySelectorAll('.select__point')
+        points.forEach(point => {
+            const input = point.querySelector('input')
+            const label = point.querySelector('label')
+
+            function checkInputs() {
+                if (input.checked) {
+                    chooseWrapper.insertAdjacentHTML('beforeend', `<li class="swiper-slide">${label.textContent}</li>`)
+                } else {
+                    Array.from(chooseWrapper.querySelectorAll('.swiper-slide')).find(li => li.textContent === label.textContent).remove()
+                }
+                if (chooseWrapper.querySelectorAll('.swiper-slide').length > 0) {
+                    choose.classList.remove('dnone')
+                    chooseText.classList.add('dnone')
+
+                } else {
+                    choose.classList.add('dnone')
+                    chooseText.classList.remove('dnone')
+                }
+                swiper.update()
+            }
+
+            input.addEventListener('click', checkInputs)
+        })
+
+        if (filter) {
+            const reset = filter.querySelector('.filter__item-reset')
+            reset.addEventListener('click', () => {
+                points.forEach(point => {
+                    const input = point.querySelector('input')
+                    if (input.checked) input.click()
+                })
+            })
+        }
     })
-})
+}

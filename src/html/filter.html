@@ -7,18 +7,13 @@
                 <div class="select filter__select">
                     <div class="select__btn">
                         <span class="select__choose-text">Выберите формат</span>
-                        <ul class="select__choose swiper ">
+                        <ul class="select__choose swiper dnone">
                             <div class="swiper-wrapper">
-                                <li class="swiper-slide">Рекламный щит</li>
-                                <li class="swiper-slide">Светодиодный экран</li>
-                                <li class="swiper-slide">Рекламный щит</li>
-                                <li class="swiper-slide">Светодиодный экран</li>
                             </div>
                         </ul>
                         <div class="select__arrow"></div>
                     </div>
                     <ul class="select__points swiper swip1">
-
                         <li class="select__point">
                             <input id="format1" type="checkbox" name="format">
                             <label for="format1">Рекламный щит</label>
@@ -43,49 +38,47 @@
                     </ul>
                 </div>
             </div>
-        </div>
-        <div class="filter__item filter__item_month">
-            <h3 class="filter__item-name">Месяц аренды</h3>
-            <button type="button" class="filter__item-reset">Сбросить</button>
-            <div class="select filter__select">
-                <div class="select__btn">
-                    <span class="select__choose-text">Выберите месяц</span>
-                    <ul class="select__choose">
-                        <li>Март</li>
-                        <li>Апрель</li>
-                        <li>Май</li>
-                        <li>Июнь</li>
+
+            <div class="filter__item filter__item_month">
+                <h3 class="filter__item-name">Месяц аренды</h3>
+                <button type="button" class="filter__item-reset">Сбросить</button>
+                <div class="select filter__select">
+                    <div class="select__btn">
+                        <span class="select__choose-text">Выберите месяц</span>
+                        <ul class="select__choose swiper dnone">
+                            <div class="swiper-wrapper">
+                            </div>
+                        </ul>
+                        <div class="select__arrow"></div>
+                    </div>
+                    <ul class="select__points">
+                        <li class="select__point">
+                            <input id="month1" type="checkbox" name="month">
+                            <label for="month1">Март</label>
+                        </li>
+                        <li class="select__point">
+                            <input id="month2" type="checkbox" name="month">
+                            <label for="month2">Апрель</label>
+                        </li>
+                        <li class="select__point">
+                            <input id="month3" type="checkbox" name="month">
+                            <label for="month3">Май</label>
+                        </li>
+                        <li class="select__point">
+                            <input id="month4" type="checkbox" name="month">
+                            <label for="month4">Июнь</label>
+                        </li>
+                        <li class="select__point">
+                            <input id="month5" type="checkbox" name="month">
+                            <label for="month5">Июль</label>
+                        </li>
                     </ul>
-                    <div class="select__arrow"></div>
                 </div>
-                <ul class="select__points">
-                    <li class="select__point">
-                        <input id="month1" type="checkbox" name="month">
-                        <label for="month1">Март</label>
-                    </li>
-                    <li class="select__point">
-                        <input id="month2" type="checkbox" name="month">
-                        <label for="month2">Апрель</label>
-                    </li>
-                    <li class="select__point">
-                        <input id="month3" type="checkbox" name="month">
-                        <label for="month3">Май</label>
-                    </li>
-                    <li class="select__point">
-                        <input id="month4" type="checkbox" name="month">
-                        <label for="month4">Июнь</label>
-                    </li>
-                    <li class="select__point">
-                        <input id="month5" type="checkbox" name="month">
-                        <label for="month5">Июль</label>
-                    </li>
-                </ul>
+            </div>
+            <div class="filter__item filter__item_sale">
+                <input id="sale1" type="checkbox" name="sale">
+                <label for="sale1">Только со скидкой</label>
             </div>
         </div>
-        <div class="filter__item filter__item_sale">
-            <input id="sale" type="radio" name="sale">
-            <label for="sale1"></label>
-        </div>
     </div>
-</div>
 </div>

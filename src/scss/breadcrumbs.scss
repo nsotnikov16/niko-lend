@@ -1,0 +1,26 @@
+.breadcrumbs {
+  padding: 22px 0 13px;
+  display: flex;
+  align-items: center;
+  &__item {
+    font-size: 14px;
+    line-height: 130%;
+    display: flex;
+    align-items: center;
+    margin-right: 25px;
+    &:last-child {
+      margin-right: 0;
+    }
+    &::before {
+      content: "";
+      display: block;
+      width: 10px;
+      height: 10px;
+      background-image: url(../img/arrow.svg);
+      background-repeat: no-repeat;
+      background-size: 100%;
+      margin-right: 17px;
+      filter:  brightness(0) invert(1);
+    }
+  }
+}
