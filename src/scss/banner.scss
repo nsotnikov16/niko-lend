@@ -66,4 +66,9 @@
       fill: white;
     }
   }
+
+
+  @media(max-width: 1024px) {
+    padding: 133px 0 204px;
+  }
 }

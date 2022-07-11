@@ -42,12 +42,48 @@
 }
 
 .background {
+  position: relative;
   background-image: url(../img/banner.png);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+
+  &::after {
+    position: absolute;
+    content: "";
+    width: 675px;
+    height: 540px;
+    background-image: url(../img/beelbord.png);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    bottom: 0;
+    right: 10%;
+  }
   .header {
     background: initial;
+  }
+
+  @media (max-width: 1220px) {
+    &::after {
+      right: 0;
+    }
+  }
+
+  @media (max-width: 1024px) {
+    background-image: url(../img/banner-tablet.png);
+
+    &::after {
+      width: 525px;
+      height: 420px;
+      right: -6%;
+    }
+  }
+
+  @media (max-width: 820px) {
+    &::after {
+      width: 435px;
+      height: 345px;
+    }
   }
 }
 
@@ -234,7 +270,6 @@
     color: white;
     border: none !important;
     &:hover {
-      
       border: none !important;
     }
   }
