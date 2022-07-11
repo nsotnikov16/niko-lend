@@ -1,8 +1,8 @@
 const hotGallery = new Swiper('.hot__gallery', {
-    slidesPerView: 4,
+   
     spaceBetween: 30,
     // Optional parameters
-    loop: true,
+    /* loop: true, */
 
     // If we need pagination
     pagination: {
@@ -20,6 +20,15 @@ const hotGallery = new Swiper('.hot__gallery', {
         el: '.swiper-scrollbar',
         draggable: true,
     },
+
+    breakpoints: {
+        1170: {
+            slidesPerView: 4,
+        },
+        320: {
+            slidesPerView: 'auto'
+        }
+    }
 });
 
 /* Яндекс карты */
