@@ -232,11 +232,17 @@
         }
         .bt {
           padding-top: 10px;
+          display: flex;
+          align-items: center;
         }
       }
 
       .months {
         grid-template-columns: repeat(auto-fit, 60px);
+      }
+
+      .table__img {
+        margin-left: 0;
       }
     }
   }

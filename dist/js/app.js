@@ -379,16 +379,20 @@ if (selects.length > 0) {
 }
 
 
-const cart = document.querySelector('.table_cart')
+/* const cart = document.querySelector('.table_cart')
 if (cart) {
     const tr = cart.querySelectorAll('tr')
     for (ind = 1; ind < tr.length; ind++) {
         const td = tr[ind].querySelectorAll('td')
         const closes = tr[ind].querySelectorAll('.close')
         const side = tr[ind].querySelector('.table__side')
+        const address = tr[ind].querySelector('.table__address')
+        const months = tr[ind].querySelector('.months')
 
         td.forEach(item => item.innerHTML ? "" : item.remove())
-        td.forEach(item => !item.innerHTML.includes('button') ? item.style.gridColumn = '1/2' : '')
+        td.forEach(item => !item.querySelector('.close') ? item.style.gridColumn = '1/2' : '')
+        address.parentNode.style.gridColumn = '1/3'
+        months.parentNode.style.gridColumn = '1/3'
 
         if (closes.length > 0) {
             closes.forEach((item, index) => {
@@ -403,26 +407,20 @@ if (cart) {
 
         if (side) side.parentNode.style.gridColumn = '2/3'
 
-        const bt = Array.from(tr[ind].querySelectorAll('.bt'))
-        const newArr = []
+        const arr = tr[ind].querySelectorAll('.bt')
+        let start = 6
+        let end = 7
+        arr.forEach(item => item.querySelector('.close') ? item.style.justifyContent = 'center' : '')
 
-        /* for (i = 0; i < bt.length; i += 2) {
-            newArr.push(bt[i])
-        }
-        for (i = 1; i < bt.length; i += 2) {
-            newArr.push(bt[i])
-        }
-        for (i = 2; i < bt.length; i += 2) {
-            newArr.push(bt[i])
+        for (let i = 2; i < arr.length; i += 3) {
+            arr[i].style.gridRow = `${start}/${end}`
+            start += 2
+            end += 2
         }
 
-
-        console.log(newArr) */
-
-
+        for (let i = 1; i < arr.length; i += 3) {
+            arr[i].style.borderTop = '0'
+        }
 
     }
-
-
-
-}
+} */
