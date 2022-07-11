@@ -416,6 +416,7 @@ body {
   .page__title {
     font-size: 36px;
     line-height: 110%;
+    margin-bottom: 12px;
   }
 }
 .page__top {
@@ -789,7 +790,7 @@ body {
   }
   .location svg {
     position: relative;
-    top: 3px;
+    top: 5px;
   }
 }
 
@@ -1955,6 +1956,18 @@ body {
   justify-content: space-between;
   gap: 19px;
 }
+@media (max-width: 1024px) {
+  .detail__container {
+    grid-template-columns: 1fr 54.6%;
+    gap: 19px 30px;
+    align-items: baseline;
+  }
+}
+@media (max-width: 767px) {
+  .detail__container {
+    grid-template-columns: 1fr;
+  }
+}
 .detail .tabs {
   width: max-content;
 }
@@ -1963,8 +1976,19 @@ body {
   justify-self: end;
   align-self: center;
 }
+@media (max-width: 767px) {
+  .detail .rating {
+    justify-self: center;
+    grid-row: 3/4;
+  }
+}
 .detail .tabs__images {
   height: 500px;
+}
+@media (max-width: 1024px) {
+  .detail .tabs__images {
+    height: auto;
+  }
 }
 .detail .tabs__images img {
   border-radius: 5px;
@@ -1972,7 +1996,7 @@ body {
 .detail__labels {
   display: flex;
   align-items: center;
-  margin-bottom: 24px;
+  flex-wrap: wrap;
 }
 .detail__labels li {
   background: #eff6ff;
@@ -1981,6 +2005,7 @@ body {
   margin-right: 20px;
   font-size: 16px;
   line-height: 130%;
+  margin-bottom: 24px;
   /* identical to box height, or 21px */
   color: rgba(12, 21, 30, 0.5);
 }
@@ -1992,6 +2017,14 @@ body {
   font-size: 16px;
   line-height: 130%;
   color: #0c151e;
+}
+@media (max-width: 767px) {
+  .detail__labels {
+    margin-bottom: 10px;
+  }
+  .detail__labels li {
+    margin-bottom: 10px;
+  }
 }
 .detail .months {
   grid-template-columns: repeat(auto-fit, 60px);
@@ -2006,6 +2039,13 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
+}
+@media (max-width: 560px) {
+  .detail__prices {
+    align-items: baseline;
+    display: grid;
+    gap: 15px;
+  }
 }
 .detail .btn_red {
   width: 170px;
@@ -2028,12 +2068,24 @@ body {
 .services__item:last-child {
   margin-bottom: 0;
 }
+@media (max-width: 560px) {
+  .services__item {
+    align-items: initial;
+    justify-content: space-between;
+    flex-direction: column;
+  }
+}
 .services__points {
   opacity: 0.5;
   height: 1px;
   border-bottom: 1px dotted #0c151e;
   flex-grow: 1;
   margin: 0 11px;
+}
+@media (max-width: 560px) {
+  .services__points {
+    display: none;
+  }
 }
 .services input {
   display: none;
@@ -2054,6 +2106,11 @@ body {
   font-size: 16px;
   line-height: 130%;
   color: #0c151e;
+}
+@media (max-width: 560px) {
+  .services b {
+    padding-left: 25px;
+  }
 }
 .services label {
   cursor: pointer;
