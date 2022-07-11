@@ -183,11 +183,7 @@
   color: #01579b;
   &_red {
     border: none;
-    background: radial-gradient(
-        140.41% 1109.59% at 6.85% 0%,
-        rgba(255, 255, 255, 0.33) 0%,
-        rgba(255, 255, 255, 0) 100%
-      ),
+    background: radial-gradient(140.41% 1109.59% at 6.85% 0%, rgba(255, 255, 255, 0.33) 0%, rgba(255, 255, 255, 0) 100%),
       #ff0e15;
     box-shadow: 0px 13px 35px -13px rgba(220, 45, 34, 0.59);
     color: white;
@@ -217,6 +213,31 @@
       fill: white;
     }
   }
+
+  &_download {
+    display: flex;
+    &::before {
+      display: block;
+      content: "";
+      width: 25px;
+      height: 25px;
+      margin-right: 9px;
+      background-image: url(../img/xls.svg);
+      background-size: 100%;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+    background: radial-gradient(140.41% 1109.59% at 6.85% 0%, rgba(255, 255, 255, 0.33) 0%, rgba(255, 255, 255, 0) 100%)
+        /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */,
+      #2e9344;
+    box-shadow: 0px 13px 35px -13px rgba(46, 147, 68, 0.59);
+    color: white;
+    border: none !important;
+    &:hover {
+      
+      border: none !important;
+    }
+  }
 }
 
 .pb0 {
@@ -240,9 +261,7 @@
   font-weight: 400;
   font-size: 24px;
   line-height: 130%;
-  
 }
-
 
 .close {
   width: 14px;
@@ -252,4 +271,61 @@
   background-position: center;
   background-repeat: no-repeat;
   opacity: 0.2;
+}
+
+.total {
+  margin-top: 40px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  max-width: 410px;
+  margin-left: auto;
+
+  &__itogo {
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 130%;
+    width: 190px;
+    color: #0c151e;
+    grid-column: 1/2;
+  }
+
+  &__old-price {
+    position: absolute;
+    top: -15px;
+    left: 0;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 130%;
+    text-decoration-line: line-through;
+    color: #0c151e;
+    opacity: 0.5;
+  }
+
+  &__price {
+    position: relative;
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 130%;
+    color: #2e9344;
+    grid-column: 2/3;
+  }
+
+  &__benefit {
+    margin-top: 1px;
+    font-size: 14px;
+    line-height: 130%;
+    color: #2e9344;
+    opacity: 0.8;
+    grid-column: 2/3;
+  }
+
+  .btn {
+    margin-top: 20px;
+    grid-column: 2/3;
+    &_download {
+    }
+
+    &_order {
+    }
+  }
 }
