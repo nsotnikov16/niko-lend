@@ -412,6 +412,12 @@ body {
   margin-bottom: 6px;
   color: #fff;
 }
+@media (max-width: 767px) {
+  .page__title {
+    font-size: 36px;
+    line-height: 110%;
+  }
+}
 .page__top {
   background: #01579b;
   padding-bottom: 31px;
@@ -774,6 +780,17 @@ body {
   height: 20px;
   fill: white;
   margin-right: 12px;
+}
+@media (max-width: 767px) {
+  .location {
+    padding: 0 5px;
+    font-size: 18px;
+    align-items: baseline;
+  }
+  .location svg {
+    position: relative;
+    top: 3px;
+  }
 }
 
 .close {
@@ -2170,6 +2187,7 @@ body {
   font-size: 20px;
   line-height: 140%;
   color: #0c151e;
+  margin-right: 20px;
 }
 .spoiler__btn {
   transform: rotate(0);

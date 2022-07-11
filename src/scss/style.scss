@@ -39,6 +39,11 @@ body {
     line-height: 150%;
     margin-bottom: 6px;
     color: #fff;
+
+    @media(max-width: 767px) {
+      font-size: 36px;
+      line-height: 110%;
+    }
   }
 
   &__top {
