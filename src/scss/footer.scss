@@ -43,11 +43,72 @@
     &__not {
     }
 
-    &__politic, &__dev {
+    &__politic,
+    &__dev {
         text-decoration: underline;
     }
 
     &__dev {
         justify-self: end;
+        br {
+            display: none;
+        }
+    }
+
+    @media (max-width: 1024px) {
+        &__container {
+            grid-template-columns: max-content 1fr 0.6fr;
+            gap: 50px 5px;
+        }
+
+        &__politic {
+            justify-self: center;
+            text-align: center;
+        }
+
+        &__dev {
+            text-align: right;
+        }
+    }
+    @media (max-width: 820px) {
+        &__container {
+            gap: 50px 30px;
+        }
+
+        &__dev {
+            br {
+                display: initial;
+            }
+        }
+    }
+
+    @media (max-width: 767px) {
+        &__container {
+            grid-template-columns: 1fr;
+            gap: 20px;
+            justify-items: center;
+        }
+
+        &__logo {
+            justify-self: center;
+            margin-bottom: 20px;
+        }
+
+        &__phone {
+            margin-bottom: 20px;
+        }
+
+        &__info {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        &__dev {
+            justify-self: center;
+            text-align: center;
+            br {
+                display: none;
+            }
+        }
     }
 }

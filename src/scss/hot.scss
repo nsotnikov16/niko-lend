@@ -3,6 +3,9 @@
     padding: 25px 35px;
     border-radius: 27px;
     max-width: 830px;
+    @media (max-width: 767px) {
+      padding: 28px 11px 17px;
+    }
   }
 
   &__item {
@@ -90,6 +93,16 @@
   &__gallery {
     .swiper-scrollbar {
       display: none;
+      position: static;
+      margin-top: 26px;
+      height: 12px;
+      background: initial;
+    }
+
+    .swiper-scrollbar-drag {
+      background: #0c151e;
+      opacity: 0.15;
+      border-radius: 50px;
     }
 
     .swiper-pagination {
@@ -99,6 +112,21 @@
 
     .swiper-slide {
       height: auto;
+    }
+
+    @media (max-width: 1169px) {
+      width: 100vw;
+      padding-right: 60px;
+      .swiper-slide {
+        max-width: 270px;
+      }
+      .swiper-scrollbar {
+        display: block;
+      }
+
+      .swiper-pagination {
+        display: none;
+      }
     }
   }
 }

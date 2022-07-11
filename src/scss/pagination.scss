@@ -1,5 +1,9 @@
 .pagination {
     margin-top: 67px;
+
+    @media(max-width: 560px) {
+        margin-top: 50px;
+    }
     display: flex;
     align-items: center;
     justify-content: center;
@@ -46,6 +50,12 @@
             background: #ff0e15;
             border: 1px solid #ff0e15;
             color: white;
+        }
+
+        @media(max-width: 560px) {
+            &:nth-child(5), &:nth-child(6) {
+                display: none;
+            }
         }
     }
 

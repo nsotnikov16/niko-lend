@@ -65,6 +65,16 @@
             }
         }
     }
+
+    @media(max-width: 767px) {
+        &__name {
+            font-size: 16px;
+        }
+
+        &__top {
+            padding: 25px 0;
+        }
+    }
 }
 
 .spoilers {

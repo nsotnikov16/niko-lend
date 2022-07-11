@@ -7,6 +7,11 @@
     display: grid;
     grid-template-columns: 455px 385px 1fr;
     gap: 30px;
+
+    @media (max-width: 1169px) {
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
   }
 
   &__item {
@@ -17,6 +22,7 @@
       justify-content: space-between;
     }
     &_format {
+      z-index: 20;
       .select__choose {
         max-width: 370px;
       }
@@ -25,6 +31,12 @@
     &_month {
       .select__choose {
         max-width: 300px;
+      }
+    }
+
+    @media(max-width: 1169px) {
+      .select__choose {
+        max-width: calc(100vw - 90px - 35px - 15px);
       }
     }
 
@@ -77,6 +89,10 @@
     font-size: 16px;
     line-height: 130%;
     color: #0c151e;
+
+    @media(max-width: 560px) {
+      font-size: 14px;
+    }
   }
 
   &__item-reset {
@@ -153,12 +169,7 @@
       position: absolute;
       width: 40px;
       height: 35px;
-      background: linear-gradient(
-        0deg,
-        #ffffff 2.5%,
-        #ffffff 59.88%,
-        rgba(255, 255, 255, 0) 100%
-      );
+      background: linear-gradient(0deg, #ffffff 2.5%, #ffffff 59.88%, rgba(255, 255, 255, 0) 100%);
       top: -41px;
       left: -15px;
       z-index: 1;
