@@ -661,6 +661,27 @@ body {
 .btn:hover:not(.btn_red) svg {
   fill: white;
 }
+.btn_download {
+  display: flex;
+  background: radial-gradient(140.41% 1109.59% at 6.85% 0%, rgba(255, 255, 255, 0.33) 0%, rgba(255, 255, 255, 0) 100%), #2e9344;
+  box-shadow: 0px 13px 35px -13px rgba(46, 147, 68, 0.59);
+  color: white;
+  border: none !important;
+}
+.btn_download::before {
+  display: block;
+  content: "";
+  width: 25px;
+  height: 25px;
+  margin-right: 9px;
+  background-image: url(../img/xls.svg);
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.btn_download:hover {
+  border: none !important;
+}
 
 .pb0 {
   padding-bottom: 0;
@@ -695,6 +716,52 @@ body {
   opacity: 0.2;
 }
 
+.total {
+  margin-top: 40px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  max-width: 410px;
+  margin-left: auto;
+}
+.total__itogo {
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 130%;
+  width: 190px;
+  color: #0c151e;
+  grid-column: 1/2;
+}
+.total__old-price {
+  position: absolute;
+  top: -15px;
+  left: 0;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 130%;
+  text-decoration-line: line-through;
+  color: #0c151e;
+  opacity: 0.5;
+}
+.total__price {
+  position: relative;
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 130%;
+  color: #2e9344;
+  grid-column: 2/3;
+}
+.total__benefit {
+  margin-top: 1px;
+  font-size: 14px;
+  line-height: 130%;
+  color: #2e9344;
+  opacity: 0.8;
+  grid-column: 2/3;
+}
+.total .btn {
+  margin-top: 20px;
+  grid-column: 2/3;
+}
 /* Хлебные крошки */
 .breadcrumbs {
   padding: 22px 0 13px;
@@ -1376,45 +1443,68 @@ body {
   border-collapse: separate;
   border-spacing: 0 10px;
 }
-.table tr:not(.table tr:first-child) {
+.table_offers tr:not(.table tr:first-child) {
   background: #eff6ff;
   padding-bottom: 10px;
 }
-.table tr:not(.table tr:first-child) td {
+.table_offers tr:not(.table tr:first-child) td {
   padding: 19px 0;
 }
-.table tr:not(.table tr:first-child) td:first-child {
+.table_offers tr:not(.table tr:first-child) td:first-child {
   border-radius: 6px 0 0 6px;
   width: 130px;
 }
-.table tr:not(.table tr:first-child) td:nth-child(2) {
+.table_offers tr:not(.table tr:first-child) td:nth-child(2) {
   width: 280px;
 }
-.table tr:not(.table tr:first-child) td:nth-child(3) {
+.table_offers tr:not(.table tr:first-child) td:nth-child(3) {
   width: 162px;
 }
-.table tr:not(.table tr:first-child) td:nth-child(4) {
+.table_offers tr:not(.table tr:first-child) td:nth-child(4) {
   width: 95px;
 }
-.table tr:not(.table tr:first-child) td:nth-child(5) {
+.table_offers tr:not(.table tr:first-child) td:nth-child(5) {
   width: 241px;
 }
-.table tr:not(.table tr:first-child) td:last-child {
+.table_offers tr:not(.table tr:first-child) td:last-child {
   border-radius: 0 6px 6px 0;
   width: 150px;
+}
+.table_cart tr {
+  display: grid;
+  grid-template-columns: 150px 385px 150px 115px 190px 1fr max-content;
+  align-items: center;
+  padding: 0 20px 15px 0;
 }
 .table_cart tr:not(.table_cart tr:first-child) {
   background: #ffffff;
   box-shadow: 0px 15px 59px rgba(1, 87, 155, 0.12);
+  margin-bottom: 10px;
 }
 .table_cart .table__side {
-  background-color: #EFF6FF;
+  background-color: #eff6ff;
 }
 .table_cart .table__sort::after {
   content: initial;
 }
-.table_cart tr:not(.table tr:first-child) td:last-child {
-  width: 50px;
+.table_cart .table__img {
+  margin: 25px 0 20px 30px;
+  max-width: 80px;
+}
+.table_cart .table__address {
+  display: block;
+  max-width: 75%;
+}
+.table_cart td.bt {
+  border-top: 1px solid rgba(12, 21, 30, 0.1);
+  height: 100%;
+  padding: 20px 0 8px;
+}
+.table_cart .table__sort {
+  margin-bottom: 0;
+}
+.table_cart .months {
+  grid-template-columns: repeat(auto-fit, 60px);
 }
 .table__sort {
   display: flex;
@@ -1524,6 +1614,16 @@ body {
   width: 120px;
   height: 45px;
   font-size: 14px;
+}
+.table__service {
+  display: block;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 130%;
+  color: #0c151e;
+}
+.table b.table__service {
+  font-weight: 700;
 }
 
 /* Детальная */
