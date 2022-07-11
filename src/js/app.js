@@ -1,5 +1,7 @@
+
+
 const hotGallery = new Swiper('.hot__gallery', {
-   
+
     spaceBetween: 30,
     // Optional parameters
     /* loop: true, */
@@ -38,7 +40,7 @@ var addresses = [
     }
 ];
 
-if(document.querySelector('#map')) ymaps.ready(init)
+if (document.querySelector('#map')) ymaps.ready(init)
 function init() {
     // Создание карты.
     var myMap = new ymaps.Map(
@@ -374,4 +376,53 @@ if (selects.length > 0) {
             })
         }
     })
+}
+
+
+const cart = document.querySelector('.table_cart')
+if (cart) {
+    const tr = cart.querySelectorAll('tr')
+    for (ind = 1; ind < tr.length; ind++) {
+        const td = tr[ind].querySelectorAll('td')
+        const closes = tr[ind].querySelectorAll('.close')
+        const side = tr[ind].querySelector('.table__side')
+
+        td.forEach(item => item.innerHTML ? "" : item.remove())
+        td.forEach(item => !item.innerHTML.includes('button') ? item.style.gridColumn = '1/2' : '')
+
+        if (closes.length > 0) {
+            closes.forEach((item, index) => {
+                item.parentNode.style.gridColumn = "2/3"
+                if (index === 0) {
+                    item.parentNode.style.gridRow = '1/2'
+                    item.parentNode.style.alignSelf = 'start'
+                    item.parentNode.style.justifySelf = 'end'
+                }
+            })
+        }
+
+        if (side) side.parentNode.style.gridColumn = '2/3'
+
+        const bt = Array.from(tr[ind].querySelectorAll('.bt'))
+        const newArr = []
+
+        /* for (i = 0; i < bt.length; i += 2) {
+            newArr.push(bt[i])
+        }
+        for (i = 1; i < bt.length; i += 2) {
+            newArr.push(bt[i])
+        }
+        for (i = 2; i < bt.length; i += 2) {
+            newArr.push(bt[i])
+        }
+
+
+        console.log(newArr) */
+
+
+
+    }
+
+
+
 }
