@@ -55,10 +55,8 @@
             <th><span href="#" class="table__sort">Формат</span></th>
             <th><span href="#" class="table__sort">Сторона</span></th>
             <th><span href="#" class="table__sort">Месяцы</span></th>
-            <th><span href="#" class="table__sort">Цена, ₽/мес</span></th>
-            <th></th>
-            <th></th>
-            <th></th>
+            <th><span href="#" class="table__sort">Цена,<span class="rt">&nbsp;₽</span>/мес</span></th>
+            <th style="width: 14px; height: 14px;"></th>
         </tr>
         <tr>
             <td>
@@ -69,7 +67,6 @@
             </td>
             <td>
                 <a href="./detail.html" class="table__address">МКАД 19 км+230м Внешняя сторона, №569</a>
-
             </td>
             <td>
                 <p class="table__format">Суперсайт
@@ -91,46 +88,44 @@
             </td>
             <td>
                 <div class="prices table__prices">
-                    <p class="price price_old">24 700 ₽
+                    <p class="price price_old">24 700<span class="rt">&nbsp;₽</span>
                         <span class="sale">-25%</span>
                     </p>
-                    <p class="price">19 000 ₽</p>
+                    <p class="price">19 000<span class="rt">&nbsp;₽</span></p>
                 </div>
 
             </td>
-            <td>
+            <td class="table__element-trash">
                 <button class="close"></button>
             </td>
             <!-- Доп услуга -->
-            <td></td>
-            <td class="bt">
-                <p class="table__service">Печать на баннере</p>
+            <td class="table__service" data-service="1">
+                <p>Печать на баннере</p>
+                <b>6 500<span class="rt">&nbsp;₽</span> / шт.</b>
+                <button class="close"></button>
             </td>
-            <td class="bt"></td>
-            <td class="bt"></td>
-            <td class="bt"></td>
-            <td class="bt">
-                <b class="table__service">6 500 ₽ / шт.</b>
-            </td>
-            <td class="bt"><button class="close"></button></td>
             <!-- Конец доп услуги -->
 
-             <!-- Доп услуга -->
-             <td></td>
-             <td class="bt">
-                 <p class="table__service">Дизайн</p>
-             </td>
-             <td class="bt"></td>
-             <td class="bt"></td>
-             <td class="bt"></td>
-             <td class="bt">
-                 <b class="table__service">5 000 ₽ / шт.</b>
-             </td>
-             <td class="bt"><button class="close"></button></td>
-             <!-- Конец доп услуги -->
+            <!-- Доп услуга -->
+            <td class="table__service" data-service="2">
+                <p>Дизайн</p>
+                <b>5 000<span class="rt">&nbsp;₽</span> / шт.</b>
+                <button class="close"></button>
+            </td>
+
+            <!-- Конец доп услуги -->
+
+            <!-- Доп услуга -->
+            <td class="table__service" data-service="3">
+                <p>Дизайн</p>
+                <b>5 000<span class="rt">&nbsp;₽</span> / шт.</b>
+                <button class="close"></button>
+            </td>
+            <!-- Конец доп услуги -->
+
         </tr>
 
-         <tr>
+        <tr>
             <td>
                 <div class="table__img">
                     <img src="./img/hot/2.png" alt="Image">
@@ -161,13 +156,13 @@
             </td>
             <td>
                 <div class="prices table__prices">
-                    <p class="price price_old">24 700 ₽
+                    <p class="price price_old">24 700<span class="rt">&nbsp;₽</span>
                         <span class="sale">-25%</span>
                     </p>
-                    <p class="price">19 000 ₽</p>
+                    <p class="price">19 000<span class="rt">&nbsp;₽</span></p>
                 </div>
             </td>
-            <td>
+            <td class="table__element-trash">
                 <button class="close"></button>
             </td>
         </tr>
@@ -176,11 +171,11 @@
 
     <div class="total">
         <h3 class="total__itogo">Итого:</h3>
-        
-        <p class="total__price">54 500 ₽
-            <s class="total__old-price">58 000 ₽</s>
+
+        <p class="total__price">54 500<span class="rt">&nbsp;₽</span>
+            <s class="total__old-price">58 000<span class="rt">&nbsp;₽</span></s>
         </p>
-        <span class="total__benefit">Ваша выгода: 3 500 ₽</span>
+        <span class="total__benefit">Ваша выгода: 3 500<span class="rt">&nbsp;₽</span></span>
         <button class="btn btn_download">Скачать КП</button>
         <button class="btn btn_red">Оформить</button>
     </div>
