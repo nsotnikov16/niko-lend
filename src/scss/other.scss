@@ -353,7 +353,7 @@
     width: 100%;
     height: 100%;
     background-image: url(../img/close.svg);
-    background-size: 48%;
+    background-size: 100%;
     background-position: center;
     background-repeat: no-repeat;
     opacity: 0.2;
@@ -363,7 +363,7 @@
     width: 32px;
     height: 32px;
     &::after {
-
+      background-size: 48%;
     }
   }
 }
