@@ -1625,6 +1625,9 @@ body {
 .select_open .select__points {
   display: block;
 }
+.select_other {
+  margin-top: 50px;
+}
 @media (min-width: 1170px) {
   .select_other {
     display: none;

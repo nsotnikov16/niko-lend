@@ -34,7 +34,7 @@
       }
     }
 
-    @media(max-width: 1169px) {
+    @media (max-width: 1169px) {
       .select__choose {
         max-width: calc(100vw - 90px - 35px - 15px);
       }
@@ -90,7 +90,7 @@
     line-height: 130%;
     color: #0c151e;
 
-    @media(max-width: 560px) {
+    @media (max-width: 560px) {
       font-size: 14px;
     }
   }
@@ -236,8 +236,11 @@
       display: block;
     }
   }
+  &_other {
+    margin-top: 50px;
+  }
 
-  @media(min-width: 1170px) {
+  @media (min-width: 1170px) {
     &_other {
       display: none;
     }
