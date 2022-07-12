@@ -58,7 +58,7 @@ function init() {
                 coordinates,
                 {},
                 {
-                    iconImageHref: "/img/map-icon.svg",
+                    iconImageHref: "./img/map-icon.svg",
                     iconImageSize: [38, 38],
                     iconLayout: "default#imageWithContent",
                     iconImageOffset: [-15, 5],
