@@ -5,6 +5,9 @@
   border-spacing: 0 10px;
 
   &_offers {
+    @media(max-width: 1169px) {
+      margin-top: 25px;
+    }
     tr:not(.table tr:first-child) {
       background: #eff6ff;
       padding-bottom: 10px;
@@ -136,6 +139,9 @@
   }
 
   &_cart {
+    @media(max-width: 560px) {
+      margin-top: 25px;
+    }
     tr {
       display: grid;
       grid-template-columns: 110px 33% 13% 9% 1fr 15% max-content;

@@ -327,18 +327,25 @@ if (selects.length > 0) {
     selects.forEach((select, index) => {
         const filter = select.closest('.filter__item')
         const choose = select.querySelector('.select__choose')
-        const chooseText = select.querySelector('.select__choose-text')
-        const chooseWrapper = choose.querySelector('.swiper-wrapper')
         const btn = select.querySelector('.select__btn')
-        choose.id = 'choose_' + index
+        let chooseWrapper
+        const chooseText = select.querySelector('.select__choose-text')
+        if (choose) {
 
-        let params = {
-            slidesPerView: "auto",
-            freeMode: true,
-            mousewheel: true,
+            chooseWrapper = choose.querySelector('.swiper-wrapper')
+            choose.id = 'choose_' + index
+
+            let params = {
+                slidesPerView: "auto",
+                freeMode: true,
+                mousewheel: true,
+            }
+
+            const swiper = new Swiper("#" + choose.id, params)
         }
 
-        const swiper = new Swiper("#" + choose.id, params)
+
+
         btn.addEventListener('click', () => select.classList.toggle('select_open'))
 
         const points = select.querySelectorAll('.select__point')
@@ -346,7 +353,7 @@ if (selects.length > 0) {
             const input = point.querySelector('input')
             const label = point.querySelector('label')
 
-            function checkInputs() {
+            function checkInputsChoose() {
                 if (input.checked) {
                     chooseWrapper.insertAdjacentHTML('beforeend', `<li class="swiper-slide">${label.textContent}</li>`)
                 } else {
@@ -363,7 +370,18 @@ if (selects.length > 0) {
                 swiper.update()
             }
 
-            input.addEventListener('click', checkInputs)
+            function checkInputsOther() {
+                if (input.checked) chooseText.textContent = label.textContent
+                chooseText.style.fontWeight = '700'
+                select.classList.remove('select_open') 
+            }
+
+            if (chooseWrapper) {
+                input.addEventListener('click', checkInputsChoose)
+            } else {
+                input.addEventListener('click', checkInputsOther)
+            }
+
         })
 
         if (filter) {
