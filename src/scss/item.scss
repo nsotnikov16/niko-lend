@@ -1,6 +1,8 @@
 .item {
+    font: initial;
+    font-family: 'Gotham Pro';
     border-radius: 17px;
-    padding: 30px;
+    padding: 10px;
     width: 500px;
     &__title {
         font-weight: 700;
