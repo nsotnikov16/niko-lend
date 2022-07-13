@@ -350,9 +350,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 /* Добавление в корзину (полёт иконки) */
-function move_to_cart(picture, cart) {
+
+const basket = document.querySelector('.header__cart')
+
+function move_to_cart(btn) {
+    const picture = basket.cloneNode(true)
+    picture.querySelector('span').remove()
+    picture.querySelector('.header__cart-count').remove()
+    btn.appendChild(picture)
+
     let picture_pos = picture.getBoundingClientRect();
-    let cart_pos = cart.getBoundingClientRect();
+    let cart_pos = basket.getBoundingClientRect();
     let picture2 = picture.cloneNode(true);
     picture2.style.visibility = "visible";
     picture2.style.background = "red";
@@ -380,18 +388,6 @@ function move_to_cart(picture, cart) {
     picture2.style.transition = "1s"; // всё происходит за 1 секунду
 
     setTimeout(() => document.body.removeChild(picture2), 960);
-}
-
-const cartBtns = document.querySelectorAll('.btn_red')
-const basket = document.querySelector('.header__cart')
-if (cartBtns.length > 0) {
-    cartBtns.forEach(btn => {
-        const basketClone = basket.cloneNode(true)
-        basketClone.querySelector('span').remove()
-        basketClone.querySelector('.header__cart-count').remove()
-        btn.appendChild(basketClone)
-        btn.addEventListener('click', () => move_to_cart(basketClone, basket))
-    })
 }
 
 
