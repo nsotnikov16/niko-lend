@@ -1,6 +1,6 @@
 <div class="page__container">
-
-    <div class="select select_other" data-aos="fade-down" data-aos-duration="900">
+    <!-- Пока не надо -->
+    <!-- <div class="select select_other" >
         <div class="select__btn">
             <span class="select__choose-text">Адрес РК</span>
             <div class="select__arrow"></div>
@@ -28,11 +28,11 @@
             </li>
 
         </ul>
-    </div>
-    <table class="table table_offers" data-aos="fade-down" data-aos-duration="900">
+    </div> -->
+    <table class="table table_offers">
         <tr>
             <th></th>
-            <th><a href="" class="table__sort table__sort_choice">Адрес РК</a></th>
+            <th><a href="" class="table__sort">Адрес РК</a></th>
             <th><a href="" class="table__sort">Формат</a></th>
             <th><a href="" class="table__sort">Сторона</a></th>
             <th><a href="" class="table__sort">Статус</a></th>
@@ -42,12 +42,13 @@
         <tr>
             <td>
                 <div class="table__img">
-                    <img src="./img/hot/2.png" loading="lazy" data-image="popup" onclick="arrPopups.image.open(this)" alt="Image">
+                    <img src="./img/hot/2.png" loading="lazy" data-image="popup" onclick="arrPopups.image.open(this)"
+                        alt="Image">
                 </div>
             </td>
             <td>
                 <a href="./detail.html" class="table__address">МКАД 19 км+230м Внешняя сторона, №569</a>
-                <div data-map="1" class="table__location">
+                <div data-map="1" onclick="openBallon(this)" class="table__location">
                     <svg>
                         <use href="./img/icons/icons.svg#location"></use>
                     </svg>
@@ -59,7 +60,9 @@
                     5х15 м</p>
             </td>
             <td>
+                <p class="table__side table__side_hide">Сторона</p>
                 <p class="table__side">А</p>
+
             </td>
             <td>
                 <ul class="months table__months">
@@ -110,7 +113,7 @@
             </td>
             <td>
                 <a href="./detail.html" class="table__address">МКАД 19 км+230м Внешняя сторона, №569</a>
-                <div data-map="2" class="table__location">
+                <div data-map="2" onclick="openBallon(this)" class="table__location">
                     <svg>
                         <use href="./img/icons/icons.svg#location"></use>
                     </svg>
@@ -122,7 +125,9 @@
                     5х15 м</p>
             </td>
             <td>
+                <p class="table__side table__side_hide">Сторона</p>
                 <p class="table__side">А</p>
+
             </td>
             <td>
                 <ul class="months table__months">
@@ -174,19 +179,21 @@
             </td>
             <td>
                 <a href="./detail.html" class="table__address">МКАД 19 км+230м Внешняя сторона, №569</a>
-                    <div data-map="2" class="table__location">
-                        <svg>
-                            <use href="./img/icons/icons.svg#location"></use>
-                        </svg>
-                        <span>на карте</span>
-                    </div>
+                <div data-map="2" onclick="openBallon(this)" class="table__location">
+                    <svg>
+                        <use href="./img/icons/icons.svg#location"></use>
+                    </svg>
+                    <span>на карте</span>
+                </div>
             </td>
             <td>
                 <p class="table__format">Суперсайт
                     5х15 м</p>
             </td>
             <td>
+                <p class="table__side table__side_hide">Сторона</p>
                 <p class="table__side">А</p>
+
             </td>
             <td>
                 <ul class="months table__months">

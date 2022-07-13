@@ -64,7 +64,7 @@
                 color: rgba(12, 21, 30, 0.35);
                 &::before {
                     content: "";
-                    display: block;
+                    display: flex;
                     width: 16px;
                     height: 16px;
                     border-radius: 4px;
@@ -72,6 +72,9 @@
                     margin-right: 4px;
                     text-align: center;
                     background-color: white;
+                    box-sizing: border-box;
+                    justify-content: center;
+                    align-items: center;
                 }
             }
 
@@ -81,6 +84,7 @@
                 &::before {
                     content: "\2714";
                     border: 1px solid #2e9344;
+                    font-size: 12px;
                 }
 
                 &::after {

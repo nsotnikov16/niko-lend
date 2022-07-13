@@ -4,14 +4,20 @@
     // Ключ balloonID - template-map-[ID элемента]
     // Coordinates - координаты (массив)
 
-    var addresses = [
+    // Центрирование карты
+    let centerMap = [43.585472, 39.723098];
+
+    // Адреса
+    let addresses = [
         {
-            id: 1, balloonID: '#template-map-1', coordinates: [43.428791, 39.919685],
+            balloonID: '#template-map-1', coordinates: [43.428791, 39.919685],
         }, {
-            id: 2, balloonID: '#template-map-1', coordinates: [43.397030, 39.969407],
+            balloonID: '#template-map-1', coordinates: [43.397030, 39.969407],
         }
     ];
 </script>
+
+
 <!-- Шаблоны объектов на карте id = template-map-[ID элемента] -->
 <template id="template-map-1">
     <div class="item tabs-parent" style="background-color: white">
@@ -162,3 +168,6 @@
         </div>
     </div>
 </template>
+
+
+<button onclick="console.log(myMap.geoObjects.get(0).balloon.open())">Клик</button>

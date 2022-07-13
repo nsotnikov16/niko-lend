@@ -1,7 +1,6 @@
 // Анимации
 AOS.init();
 
-
 const hotGallery = new Swiper('.hot__gallery', {
     spaceBetween: 30,
     pagination: {
@@ -26,14 +25,14 @@ const hotGallery = new Swiper('.hot__gallery', {
     }
 });
 
-let map
-if (document.querySelector('#map')) map = ymaps.ready(init)
+let myMap
+if (document.querySelector('#map')) ymaps.ready(init)
 function init() {
     // Создание карты.
-    var myMap = new ymaps.Map(
+    myMap = new ymaps.Map(
         "map",
         {
-            center: [43.585472, 39.723098],
+            center: centerMap,
             zoom: 12,
             controls: ['zoomControl', 'geolocationControl'],
         },
@@ -45,7 +44,7 @@ function init() {
         },
     )
     addresses.forEach(
-        ({ balloonID, coordinates, id }, ind) => {
+        ({ balloonID, coordinates }, ind) => {
             const html = document.querySelector(balloonID).innerHTML;
             const balloonContentLayout = ymaps.templateLayoutFactory.createClass(html)
             myPlacemarkWithContent = new ymaps.Placemark(
@@ -62,19 +61,20 @@ function init() {
                     balloonPanelMaxMapArea: 0,
                     hideIconOnBalloonOpen: false,
                     balloonMaxWidth: 1000,
-                    balloonMaxHeight: 460,
+                    balloonMaxHeight: 1000,
                 }
             );
             myMap.geoObjects.add(myPlacemarkWithContent);
-            const link = document.querySelector(`[data-map="${id}"]`)
-            if (link) link.addEventListener('click', () => myMap.geoObjects.get(Number(link.dataset.map) - 1).balloon.open())
-
         }
     );
-
-    /* console.log(myMap.geoObjects.get(0).balloon.open()) */
 }
 
+function openBallon(button) {
+    if (!myMap) return
+    const balloon = Number(button.dataset.map) - 1
+    scrollToElement('#map')
+    myMap.geoObjects.get(balloon).balloon.open()
+}
 
 
 
@@ -344,7 +344,7 @@ document.addEventListener('DOMContentLoaded', () => {
 })
 
 
-
+/* Добавление в корзину (полёт иконки) */
 function move_to_cart(picture, cart) {
     let picture_pos = picture.getBoundingClientRect();
     let cart_pos = cart.getBoundingClientRect();
@@ -367,7 +367,7 @@ function move_to_cart(picture, cart) {
 
     document.body.appendChild(picture2);
     void picture2.offsetWidth;
-    
+
     picture2.style.borderRadius = "50%";
     picture2.style.transform = "translateX(" + delta_x + "px)";
     picture2.style.transform += "translateY(" + delta_y + "px)";
@@ -388,3 +388,41 @@ if (cartBtns.length > 0) {
         btn.addEventListener('click', () => move_to_cart(basketClone, basket))
     })
 }
+
+
+// Плавный скролл
+const anchors = /* [].slice.call(document.querySelectorAll('[data-scroll]')), */
+    animationTime = 400,
+    framesCount = 30;
+
+function scrollToElement(id) {
+    let element = document.querySelector(id)
+    if (!element) return
+
+    // для каждого якоря берем соответствующий ему элемент и определяем его координату Y
+    let coordY = element.getBoundingClientRect().top + window.pageYOffset;
+
+    // запускаем интервал, в котором
+    let scroller = setInterval(function () {
+        // считаем на сколько скроллить за 1 такт
+        let scrollBy = coordY / framesCount;
+
+        // если к-во пикселей для скролла за 1 такт больше расстояния до элемента
+        // и дно страницы не достигнуто
+        if (scrollBy > window.pageYOffset - coordY && window.innerHeight + window.pageYOffset < document.body.offsetHeight) {
+            // то скроллим на к-во пикселей, которое соответствует одному такту
+            window.scrollBy(0, scrollBy);
+        } else {
+            // иначе добираемся до элемента и выходим из интервала
+            window.scrollTo(0, coordY);
+            clearInterval(scroller);
+        }
+        // время интервала равняется частному от времени анимации и к-ва кадров
+    }, animationTime / framesCount);
+
+}
+
+/* anchors.forEach(item => item.addEventListener('click', (e) => {
+    e.preventDefault()
+    scroll(item)
+})) */
