@@ -5,11 +5,12 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 	<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
 	<link rel="stylesheet" href="css/style.css">
 	<script src="https://api-maps.yandex.ru/2.1/?apikey=f9ebcc43-ca68-4256-a481-ec6d67357bde&lang=ru_RU"
 		type="text/javascript"></script>
-	<title>Детальная</title>
+	<title>Рекламный щит 3х6 (сторона А) - Статика</title>
 </head>
 
 <body>
@@ -159,7 +160,7 @@
 			</div>
 			<div class="page__container">
 
-    <div class="select select_other">
+    <div class="select select_other" data-aos="fade-down" data-aos-duration="900">
         <div class="select__btn">
             <span class="select__choose-text">Адрес РК</span>
             <div class="select__arrow"></div>
@@ -188,7 +189,7 @@
 
         </ul>
     </div>
-    <table class="table table_offers">
+    <table class="table table_offers" data-aos="fade-down" data-aos-duration="900">
         <tr>
             <th></th>
             <th><a href="" class="table__sort table__sort_choice">Адрес РК</a></th>
@@ -201,17 +202,17 @@
         <tr>
             <td>
                 <div class="table__img">
-                    <img src="./img/hot/2.png" alt="Image">
+                    <img src="./img/hot/2.png" loading="lazy" data-image="popup" onclick="arrPopups.image.open(this)" alt="Image">
                 </div>
             </td>
             <td>
-                <a href="./detail.html" class="table__address">МКАД 19 км+230м Внешняя сторона, №569</h3>
-                    <a href="" class="table__location">
-                        <svg>
-                            <use href="./img/icons/icons.svg#location"></use>
-                        </svg>
-                        <span>на карте</span>
-                    </a>
+                <a href="./detail.html" class="table__address">МКАД 19 км+230м Внешняя сторона, №569</a>
+                <div data-map="1" class="table__location">
+                    <svg>
+                        <use href="./img/icons/icons.svg#location"></use>
+                    </svg>
+                    <span>на карте</span>
+                </div>
             </td>
             <td>
                 <p class="table__format">Суперсайт
@@ -264,17 +265,17 @@
         <tr>
             <td>
                 <div class="table__img">
-                    <img src="./img/hot/2.png" alt="Image">
+                    <img src="./img/hot/2.png" loading="lazy" alt="Image">
                 </div>
             </td>
             <td>
-                <a href="./detail.html" class="table__address">МКАД 19 км+230м Внешняя сторона, №569</h3>
-                    <a href="" class="table__location">
-                        <svg>
-                            <use href="./img/icons/icons.svg#location"></use>
-                        </svg>
-                        <span>на карте</span>
-                    </a>
+                <a href="./detail.html" class="table__address">МКАД 19 км+230м Внешняя сторона, №569</a>
+                <div data-map="2" class="table__location">
+                    <svg>
+                        <use href="./img/icons/icons.svg#location"></use>
+                    </svg>
+                    <span>на карте</span>
+                </div>
             </td>
             <td>
                 <p class="table__format">Суперсайт
@@ -328,17 +329,17 @@
         <tr>
             <td>
                 <div class="table__img">
-                    <img src="./img/hot/2.png" alt="Image">
+                    <img src="./img/hot/2.png" loading="lazy" alt="Image">
                 </div>
             </td>
             <td>
-                <a href="./detail.html" class="table__address">МКАД 19 км+230м Внешняя сторона, №569</h3>
-                    <a href="" class="table__location">
+                <a href="./detail.html" class="table__address">МКАД 19 км+230м Внешняя сторона, №569</a>
+                    <div data-map="2" class="table__location">
                         <svg>
                             <use href="./img/icons/icons.svg#location"></use>
                         </svg>
                         <span>на карте</span>
-                    </a>
+                    </div>
             </td>
             <td>
                 <p class="table__format">Суперсайт
@@ -438,12 +439,12 @@
     // Массив адресов
     // Ключ balloonID - template-map-[ID элемента]
     // Coordinates - координаты (массив)
-    
+
     var addresses = [
         {
-            balloonID: '#template-map-1', coordinates: [43.428791, 39.919685],
+            id: 1, balloonID: '#template-map-1', coordinates: [43.428791, 39.919685],
         }, {
-            balloonID: '#template-map-1', coordinates: [43.397030, 39.969407],
+            id: 2, balloonID: '#template-map-1', coordinates: [43.397030, 39.969407],
         }
     ];
 </script>
@@ -597,6 +598,7 @@
         </div>
     </div>
 </template>
+	<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 	<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 	<script src="./js/app.js"></script>
 </body>
