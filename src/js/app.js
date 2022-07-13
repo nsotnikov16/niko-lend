@@ -3,6 +3,7 @@ AOS.init();
 
 const hotGallery = new Swiper('.hot__gallery', {
     spaceBetween: 30,
+    freeMode: true,
     pagination: {
         el: '.hot__gallery .swiper-pagination',
         clickable: true,
@@ -43,6 +44,7 @@ function init() {
             geolocationControlPosition: { right: 10, top: 330 }
         },
     )
+
     addresses.forEach(
         ({ balloonID, coordinates }, ind) => {
             const html = document.querySelector(balloonID).innerHTML;
