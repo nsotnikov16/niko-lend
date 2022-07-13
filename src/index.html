@@ -1,21 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-	<meta charset="UTF-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
-	<link rel="stylesheet" href="css/style.css">
-	<script src="https://api-maps.yandex.ru/2.1/?apikey=f9ebcc43-ca68-4256-a481-ec6d67357bde&lang=ru_RU"
-		type="text/javascript"></script>
-	<title>Нико-Медиа</title>
-</head>
+@@include('html/head.html', {"title": "Нико-Медиа"})
 
 <body>
 	<div class="page">
 		<div class="background">
-		
+
 			@@include('html/header.html', {})
 
 			@@include('html/banner.html', {})
@@ -25,8 +16,8 @@
 
 		<section class="section">
 			<div class="page__container">
-				<h2 class="section__title">Рекламные щиты</h2>
-				<p class="section__subtitle">Подберите нужную Вам поверхность сами, или с помощью наших менеджеров:
+				<h2 class="section__title" data-aos="fade-down" data-aos-duration="700">Рекламные щиты</h2>
+				<p class="section__subtitle" data-aos="fade-down" data-aos-duration="900">Подберите нужную Вам поверхность сами, или с помощью наших менеджеров:
 					подскажем оптимальный вариант для решения ваших задач. Поможем с дизайном, составим медиаплан,
 					спрогнозируем рекламный охват. Обращайтесь, поможем!</p>
 			</div>
@@ -35,7 +26,7 @@
 			<div class="map" id="map"></div>
 			@@include('html/table.html', {})
 
-			
+
 		</section>
 		@@include('html/about.html', {})
 		@@include('html/faq.html', {})
@@ -43,6 +34,8 @@
 	</div>
 
 	@@include('html/item.html', {})
+	@@include('html/popups.html', {})
+	<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 	<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 	<script src="./js/app.js"></script>
 </body>

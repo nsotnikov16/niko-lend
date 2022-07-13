@@ -1,28 +1,21 @@
+// Анимации
+AOS.init();
 
 
 const hotGallery = new Swiper('.hot__gallery', {
-
     spaceBetween: 30,
-    // Optional parameters
-    /* loop: true, */
-
-    // If we need pagination
     pagination: {
         el: '.hot__gallery .swiper-pagination',
         clickable: true,
     },
-
-    // Navigation arrows
     navigation: {
         nextEl: '.hot__gallery-container .swiper-button-next',
         prevEl: '.hot__gallery-container .swiper-button-prev',
     },
-
     scrollbar: {
         el: '.swiper-scrollbar',
         draggable: true,
     },
-
     breakpoints: {
         1170: {
             slidesPerView: 4,
@@ -33,9 +26,8 @@ const hotGallery = new Swiper('.hot__gallery', {
     }
 });
 
-
-
-if (document.querySelector('#map')) ymaps.ready(init)
+let map
+if (document.querySelector('#map')) map = ymaps.ready(init)
 function init() {
     // Создание карты.
     var myMap = new ymaps.Map(
@@ -54,6 +46,8 @@ function init() {
     )
     addresses.forEach(
         ({ balloonID, coordinates, id }, ind) => {
+            const html = document.querySelector(balloonID).innerHTML;
+            const balloonContentLayout = ymaps.templateLayoutFactory.createClass(html)
             myPlacemarkWithContent = new ymaps.Placemark(
                 coordinates,
                 {},
@@ -64,7 +58,7 @@ function init() {
                     iconImageOffset: [-15, 5],
                     iconRotate: 99,
                     /* balloonLayout: MyBalloonLayout, */
-                    balloonContentLayout: ymaps.templateLayoutFactory.createClass(document.querySelector(balloonID).innerHTML),
+                    balloonContentLayout,
                     balloonPanelMaxMapArea: 0,
                     hideIconOnBalloonOpen: false,
                     balloonMaxWidth: 1000,
@@ -72,10 +66,17 @@ function init() {
                 }
             );
             myMap.geoObjects.add(myPlacemarkWithContent);
+            const link = document.querySelector(`[data-map="${id}"]`)
+            if (link) link.addEventListener('click', () => myMap.geoObjects.get(Number(link.dataset.map) - 1).balloon.open())
 
         }
     );
+
+    /* console.log(myMap.geoObjects.get(0).balloon.open()) */
 }
+
+
+
 
 // Рейтинг
 class Rating {
@@ -88,13 +89,11 @@ class Rating {
         this.setRatingActiveWidth()
         /* this.setEventListeners() */
     }
-
     // Инициализируем переменные
     initRatingVars() {
         this.ratingActive = this.rating.querySelector('.rating__active')
         this.ratingValue = Number(this.rating.dataset.rating)
     }
-
     // Обновление активных звёзд
     setRatingActiveWidth(index = this.ratingValue) {
         this.ratingActive.style.width = `${index / 0.05}%`
@@ -193,9 +192,7 @@ const spoilers = document.querySelectorAll('.spoiler')
 if (spoilers.length > 0) {
     spoilers.forEach(spoiler => {
         const top = spoiler.querySelector('.spoiler__top')
-        top.addEventListener('click', () => {
-            spoiler.classList.toggle('spoiler_open')
-        })
+        top.addEventListener('click', () => spoiler.classList.toggle('spoiler_open'))
     })
 }
 
@@ -204,26 +201,28 @@ if (spoilers.length > 0) {
 const selects = document.querySelectorAll('.select')
 if (selects.length > 0) {
     selects.forEach((select, index) => {
+        select.id = 'select-' + index
         const filter = select.closest('.filter__item')
         const choose = select.querySelector('.select__choose')
         const btn = select.querySelector('.select__btn')
         let chooseWrapper
+
+
+        document.addEventListener('click', ({ target }) => {
+            if (select.classList.contains('select_open') && !target.closest('#' + select.id)) select.classList.remove('select_open')
+        })
+
         const chooseText = select.querySelector('.select__choose-text')
         if (choose) {
-
             chooseWrapper = choose.querySelector('.swiper-wrapper')
             choose.id = 'choose_' + index
-
             let params = {
                 slidesPerView: "auto",
                 freeMode: true,
                 mousewheel: true,
             }
-
             const swiper = new Swiper("#" + choose.id, params)
         }
-
-
 
         btn.addEventListener('click', () => select.classList.toggle('select_open'))
 
@@ -292,3 +291,54 @@ if (cart) {
         })
     }
 }
+
+
+// Popups
+class Popup {
+    constructor(popupElement) {
+        this.popupElement = popupElement;
+        this._closeButton = this.popupElement.querySelector('.popup__close');
+        this._img = this.popupElement.querySelector('.popup__img') ?? '';
+        this._handleEscClose = this._handleEscClose.bind(this)
+        this._openingLinks = document.querySelectorAll(`[data-pointer="${this.popupElement.id}"]`)
+        this.setEventListeners()
+    }
+
+    open(el) {
+        document.body.style.overflow = "hidden";
+        this.popupElement.classList.add('popup_opened')
+        document.addEventListener('keydown', this._handleEscClose);
+        if (el.dataset.image) this._img.src = el.src
+    }
+
+    close() {
+        this.popupElement.classList.remove('popup_opened');
+        document.body.style.overflow = "visible";
+        document.removeEventListener('keydown', this._handleEscClose);
+        if (this.popupElement.id === 'stories') stories.reset()
+    }
+
+    _handleEscClose(evt) {
+        if (evt.keyCode === 27) {
+            this.close();
+        }
+    }
+
+    _handleOverlayClick(evt) {
+        if (evt.target === evt.currentTarget) {
+            this.close();
+        }
+    }
+
+    setEventListeners() {
+        this._openingLinks.forEach(link => link.addEventListener('click', (e) => { e.preventDefault(); this.open(e.target) }))
+        this._closeButton.addEventListener('click', () => this.close());
+        this.popupElement.addEventListener('click', this._handleOverlayClick.bind(this));
+    }
+}
+
+const popups = document.querySelectorAll('.popup')
+let arrPopups = {}
+document.addEventListener('DOMContentLoaded', () => {
+    if (popups.length > 0) popups.forEach(item => arrPopups[item.id] = new Popup(item))
+})

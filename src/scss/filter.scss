@@ -103,6 +103,10 @@
     display: flex;
     align-items: center;
     justify-self: end;
+    &:hover {
+      color: rgba(255, 14, 21, 0.8);
+      opacity: 1;
+    }
     &::after {
       content: "х";
       margin-left: 5px;
