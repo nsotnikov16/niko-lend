@@ -348,14 +348,16 @@ document.addEventListener('DOMContentLoaded', () => {
 function move_to_cart(picture, cart) {
     let picture_pos = picture.getBoundingClientRect();
     let cart_pos = cart.getBoundingClientRect();
-
-    let picture2 = picture.cloneNode();
-
+    let picture2 = picture.cloneNode(true);
+    picture2.style.visibility = "visible";
+    picture2.style.background = "red";
     picture2.style.position = "fixed";
+    picture2.style.width = "30px";
+    picture2.style.height = "30px";
     picture2.style.left = picture_pos['x'] + "px";
     picture2.style.top = picture_pos['y'] + "px";
     picture2.style.border = "none";
-    picture2.style.zIndex = 32767;
+    picture2.style.zIndex = 88888;
 
     let start_x = picture_pos['x'] + 0.5 * picture_pos['width'];
     let start_y = picture_pos['y'] + 0.5 * picture_pos['height'];
@@ -365,8 +367,7 @@ function move_to_cart(picture, cart) {
 
     document.body.appendChild(picture2);
     void picture2.offsetWidth;
-    picture2.style.width = "20px";
-    picture2.style.height = "20px";
+    
     picture2.style.borderRadius = "50%";
     picture2.style.transform = "translateX(" + delta_x + "px)";
     picture2.style.transform += "translateY(" + delta_y + "px)";
@@ -376,14 +377,14 @@ function move_to_cart(picture, cart) {
     setTimeout(() => document.body.removeChild(picture2), 960);
 }
 
-const cartBtns = document.querySelectorAll('.table__btn')
+const cartBtns = document.querySelectorAll('.btn_red')
 const basket = document.querySelector('.header__cart')
 if (cartBtns.length > 0) {
     cartBtns.forEach(btn => {
-        const parent = btn.closest('.table tr')
-        const img = parent.querySelector('.table__img img')
-
-        btn.addEventListener('click', () => move_to_cart(img, basket))
+        const basketClone = basket.cloneNode(true)
+        basketClone.querySelector('span').remove()
+        basketClone.querySelector('.header__cart-count').remove()
+        btn.appendChild(basketClone)
+        btn.addEventListener('click', () => move_to_cart(basketClone, basket))
     })
-
 }
