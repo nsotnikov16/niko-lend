@@ -67,7 +67,7 @@
                 </div>
             </td>
             <td>
-                <a href="./detail.html" class="table__address">МКАД 19 км+230м Внешняя сторона, №569</a>
+                <a href="./detail.html" class="table__address" data-image="popup" onclick="arrPopups.image.open(this)">МКАД 19 км+230м Внешняя сторона, №569</a>
             </td>
             <td>
                 <p class="table__format">Суперсайт
@@ -75,6 +75,7 @@
 
             </td>
             <td>
+                <p class="table__side table__side_hide">Сторона</p>
                 <p class="table__side">А</p>
 
             </td>
@@ -129,7 +130,7 @@
         <tr>
             <td>
                 <div class="table__img">
-                    <img src="./img/hot/2.png" alt="Image">
+                    <img src="./img/hot/2.png" alt="Image" data-image="popup" onclick="arrPopups.image.open(this)">
                 </div>
             </td>
             <td>
@@ -141,6 +142,7 @@
                     5х15 м</p>
             </td>
             <td>
+                <p class="table__side table__side_hide">Сторона</p>
                 <p class="table__side">А</p>
             </td>
             <td>
@@ -209,14 +211,20 @@
     // Ключ balloonID - template-map-[ID элемента]
     // Coordinates - координаты (массив)
 
-    var addresses = [
+    // Центрирование карты
+    let centerMap = [43.585472, 39.723098];
+
+    // Адреса
+    let addresses = [
         {
-            id: 1, balloonID: '#template-map-1', coordinates: [43.428791, 39.919685],
+            balloonID: '#template-map-1', coordinates: [43.428791, 39.919685],
         }, {
-            id: 2, balloonID: '#template-map-1', coordinates: [43.397030, 39.969407],
+            balloonID: '#template-map-1', coordinates: [43.397030, 39.969407],
         }
     ];
 </script>
+
+
 <!-- Шаблоны объектов на карте id = template-map-[ID элемента] -->
 <template id="template-map-1">
     <div class="item tabs-parent" style="background-color: white">
@@ -367,6 +375,17 @@
         </div>
     </div>
 </template>
+
+
+<button onclick="console.log(myMap.geoObjects.get(0).balloon.open())">Клик</button>
+	<div id="image" class="popup">
+    <div class="popup__container">
+        <div class="popup__content">
+           <img src="" class="popup__img" alt="">
+        </div>
+        <button class="popup__close"><span>&#10006;</span></button>
+    </div>
+</div>
 	<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 	<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 	<script src="./js/app.js"></script>

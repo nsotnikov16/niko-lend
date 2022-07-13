@@ -930,7 +930,7 @@ body {
 }
 @media (max-width: 767px) {
   .map {
-    height: 854px;
+    height: 720px;
   }
 }
 
@@ -1076,7 +1076,7 @@ body {
 }
 .months__item_req label::before {
   content: "";
-  display: block;
+  display: flex;
   width: 16px;
   height: 16px;
   border-radius: 4px;
@@ -1084,6 +1084,9 @@ body {
   margin-right: 4px;
   text-align: center;
   background-color: white;
+  box-sizing: border-box;
+  justify-content: center;
+  align-items: center;
 }
 .months__item_req input:checked + label {
   background-color: rgba(46, 147, 68, 0.1);
@@ -1092,6 +1095,7 @@ body {
 .months__item_req input:checked + label::before {
   content: "✔";
   border: 1px solid #2e9344;
+  font-size: 12px;
 }
 .months__item_req input:checked + label::after {
   content: "по запросу";
@@ -1309,6 +1313,8 @@ body {
   font-size: 16px;
   line-height: 24px;
   height: 72px;
+  color: white;
+  width: 100%;
 }
 .banner__button:hover {
   box-shadow: 0px 0px 9px 7px rgba(255, 14, 21, 0.4);
@@ -1350,6 +1356,7 @@ body {
   padding: 25px 35px;
   border-radius: 27px;
   max-width: 830px;
+  margin-bottom: 0;
 }
 @media (max-width: 767px) {
   .hot__subtitle {
@@ -1366,6 +1373,13 @@ body {
   background: #eff6ff;
   padding-bottom: 22px;
   border-radius: 0 0 10px 10px;
+  transform: translateY(0);
+  transition: transform 0.25s ease-in-out;
+}
+@media (min-width: 1100px) {
+  .hot__item:hover {
+    transform: translateY(-20px);
+  }
 }
 .hot__info {
   display: flex;
@@ -1430,6 +1444,9 @@ body {
 }
 .hot__gallery-container .swiper-button-prev {
   left: -55px;
+}
+.hot__gallery {
+  padding-top: 35px;
 }
 .hot__gallery .swiper-scrollbar {
   display: none;
@@ -1706,6 +1723,11 @@ body {
   padding: 10px;
   width: 500px;
 }
+@media (max-width: 767px) {
+  .item {
+    max-width: 315px;
+  }
+}
 .item__title {
   font-weight: 700;
   font-size: 18px;
@@ -1716,6 +1738,11 @@ body {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 10px 30px;
+}
+@media (max-width: 767px) {
+  .item__container {
+    grid-template-columns: 1fr;
+  }
 }
 .item__tabs {
   margin-bottom: 10px;
@@ -1833,6 +1860,10 @@ body {
     grid-column: 3/4;
   }
   .table_offers tr td:nth-child(4) {
+    margin-left: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     grid-column: 4/5;
   }
   .table_offers tr td:nth-child(5) {
@@ -1868,9 +1899,15 @@ body {
     grid-row: 2/3;
   }
   .table_offers tr td:nth-child(4) {
-    grid-column: 3/4;
+    grid-column: 2/4;
     grid-row: 2/3;
     justify-self: end;
+    margin-left: 0;
+    flex-direction: row;
+  }
+  .table_offers tr td:nth-child(4) .table__side_hide {
+    margin-right: 7px;
+    margin-bottom: 0;
   }
   .table_offers tr td:nth-child(5) {
     grid-row: 3/4;
@@ -1891,6 +1928,11 @@ body {
   .table_offers .table__img {
     margin-left: 0;
     width: 80px;
+  }
+}
+@media (min-width: 820px) {
+  .table_cart .table__side_hide {
+    display: none;
   }
 }
 @media (max-width: 560px) {
@@ -1992,6 +2034,12 @@ body {
   }
   .table_cart tr:not(.table_cart tr:first-child) td:nth-child(4) {
     justify-self: end;
+    display: flex;
+    align-items: center;
+  }
+  .table_cart tr:not(.table_cart tr:first-child) td:nth-child(4) .table__side_hide {
+    margin-right: 7px;
+    margin-bottom: 0;
   }
   .table_cart tr:not(.table_cart tr:first-child) td:nth-child(5) {
     grid-column: 1/3;
@@ -2024,7 +2072,7 @@ body {
   margin-bottom: 14px;
 }
 .table__sort::after {
-  content: "";
+  /* content: ""; */
   display: block;
   border: 5px solid transparent;
   border-top: 5px solid rgba(12, 21, 30, 0.5);
@@ -2120,6 +2168,22 @@ body {
   text-transform: uppercase;
   background-color: white;
   border-radius: 6px;
+}
+.table__side_hide {
+  text-transform: initial;
+  background: initial;
+  width: initial;
+  height: initial;
+  text-align: center;
+  display: flex;
+  align-items: baseline;
+  margin-bottom: 5px;
+  background-color: transparent !important;
+}
+@media (min-width: 1170px) {
+  .table__side_hide {
+    display: none;
+  }
 }
 .table__prices .price {
   font-size: 16px;
@@ -2340,7 +2404,7 @@ body {
   border-radius: 6px;
   margin-right: 8px;
   text-align: center;
-  font-size: 13px;
+  font-size: 11px;
 }
 .period__title {
   font-weight: 400;
