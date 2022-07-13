@@ -727,6 +727,7 @@ body {
   color: #01579b;
 }
 .btn_red {
+  position: relative;
   border: none;
   background: radial-gradient(140.41% 1109.59% at 6.85% 0%, rgba(255, 255, 255, 0.33) 0%, rgba(255, 255, 255, 0) 100%), #ff0e15;
   box-shadow: 0px 13px 35px -13px rgba(220, 45, 34, 0.59);
@@ -734,6 +735,14 @@ body {
 }
 .btn_red:hover {
   box-shadow: 0px 0px 9px 7px rgba(255, 14, 21, 0.4);
+}
+.btn_red .header__cart {
+  position: absolute;
+  visibility: hidden;
+  background: radial-gradient(140.41% 1109.59% at 6.85% 0%, rgba(255, 255, 255, 0.33) 0%, rgba(255, 255, 255, 0) 100%), #ff0e15;
+  display: block;
+  width: 30px;
+  height: 30px;
 }
 .btn_all {
   font-weight: 500;
