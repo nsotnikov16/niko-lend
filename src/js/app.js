@@ -342,3 +342,48 @@ let arrPopups = {}
 document.addEventListener('DOMContentLoaded', () => {
     if (popups.length > 0) popups.forEach(item => arrPopups[item.id] = new Popup(item))
 })
+
+
+
+function move_to_cart(picture, cart) {
+    let picture_pos = picture.getBoundingClientRect();
+    let cart_pos = cart.getBoundingClientRect();
+
+    let picture2 = picture.cloneNode();
+
+    picture2.style.position = "fixed";
+    picture2.style.left = picture_pos['x'] + "px";
+    picture2.style.top = picture_pos['y'] + "px";
+    picture2.style.border = "none";
+    picture2.style.zIndex = 32767;
+
+    let start_x = picture_pos['x'] + 0.5 * picture_pos['width'];
+    let start_y = picture_pos['y'] + 0.5 * picture_pos['height'];
+
+    let delta_x = (cart_pos['x'] + 0.5 * cart_pos['width']) - start_x;
+    let delta_y = (cart_pos['y'] + 0.5 * cart_pos['height']) - start_y;
+
+    document.body.appendChild(picture2);
+    void picture2.offsetWidth;
+    picture2.style.width = "20px";
+    picture2.style.height = "20px";
+    picture2.style.borderRadius = "50%";
+    picture2.style.transform = "translateX(" + delta_x + "px)";
+    picture2.style.transform += "translateY(" + delta_y + "px)";
+    picture2.style.transform += "scale(0.001)"; // уменьшаем до 25%
+    picture2.style.transition = "1s"; // всё происходит за 1 секунду
+
+    setTimeout(() => document.body.removeChild(picture2), 960);
+}
+
+const cartBtns = document.querySelectorAll('.table__btn')
+const basket = document.querySelector('.header__cart')
+if (cartBtns.length > 0) {
+    cartBtns.forEach(btn => {
+        const parent = btn.closest('.table tr')
+        const img = parent.querySelector('.table__img img')
+
+        btn.addEventListener('click', () => move_to_cart(img, basket))
+    })
+
+}

@@ -62,9 +62,11 @@
 .background {
   position: relative;
   background-image: url(../img/banner.png);
-  background-size: cover;
+  background-size: 102% 102%;
   background-position: center;
   background-repeat: no-repeat;
+  overflow: hidden;
+  animation: abc 3.5s linear infinite;
 
   &::after {
     position: absolute;
@@ -111,6 +113,20 @@
       height: 309px;
       right: 2%;
     }
+  }
+}
+
+@keyframes abc {
+  0% {
+    background-position: top left;
+  }
+
+  50% {
+    background-position: center;
+  }
+
+  100% {
+    background-position: top left;
   }
 }
 
