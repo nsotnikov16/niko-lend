@@ -394,8 +394,8 @@ if (cartBtns.length > 0) {
 
 // Плавный скролл
 const anchors = /* [].slice.call(document.querySelectorAll('[data-scroll]')), */
-    animationTime = 400,
-    framesCount = 30;
+    animationTime = 500,
+    framesCount = 50;
 
 function scrollToElement(id) {
     let element = document.querySelector(id)
