@@ -59,14 +59,42 @@
   background-color: #eff6ff;
 }
 
+.parallax {
+  position: absolute;
+  top: -5%;
+  left: -5%;
+  bottom: -5%;
+  right: -5%;
+  width: 107%;
+  height: 107%;
+  overflow: hidden;
+  object-fit: cover;
+  object-position: center;
+  z-index: -1;
+  animation: parallax 3.5s linear infinite;
+  @media (max-width: 1169px) {
+    animation: none;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  @media(max-width: 1024px) {
+    display: none;
+  }
+}
+
 .background {
   position: relative;
-  background-image: url(../img/banner.png);
-  background-size: 102% 102%;
+  background-image: url(../img/banner-test.png);
+  background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   overflow: hidden;
-  animation: abc 3.5s linear infinite;
+  z-index: 1;
 
   &::after {
     position: absolute;
@@ -78,6 +106,7 @@
     background-repeat: no-repeat;
     bottom: 0;
     right: 10%;
+    z-index: 3;
   }
   .header {
     background: initial;
@@ -116,17 +145,17 @@
   }
 }
 
-@keyframes abc {
+@keyframes parallax {
   0% {
-    background-position: top left;
+    object-position: top left;
   }
 
   50% {
-    background-position: center;
+    object-position: center;
   }
 
   100% {
-    background-position: top left;
+    object-position: top left;
   }
 }
 
@@ -285,8 +314,12 @@
     .header__cart {
       position: absolute;
       visibility: hidden;
-      background: radial-gradient(140.41% 1109.59% at 6.85% 0%, rgba(255, 255, 255, 0.33) 0%, rgba(255, 255, 255, 0) 100%),
-      #ff0e15;
+      background: radial-gradient(
+          140.41% 1109.59% at 6.85% 0%,
+          rgba(255, 255, 255, 0.33) 0%,
+          rgba(255, 255, 255, 0) 100%
+        ),
+        #ff0e15;
       display: block;
       width: 30px;
       height: 30px;

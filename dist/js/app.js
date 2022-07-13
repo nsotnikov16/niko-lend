@@ -1,6 +1,9 @@
 // Анимации
 AOS.init();
 
+// Мобильное устройство?
+const isMobile = /Mobile|webOS|BlackBerry|IEMobile|MeeGo|mini|Fennec|Windows Phone|Android|iP(ad|od|hone)/i.test(navigator.userAgent);
+
 const hotGallery = new Swiper('.hot__gallery', {
     spaceBetween: 30,
     freeMode: true,
@@ -424,7 +427,46 @@ function scrollToElement(id) {
 
 }
 
-/* anchors.forEach(item => item.addEventListener('click', (e) => {
-    e.preventDefault()
-    scroll(item)
-})) */
+
+// Параллакс эффект при движении мыши
+const parallax = document.querySelector('.parallax')
+if (parallax && window.innerWidth >= 1170) {
+    document.addEventListener('DOMContentLoaded', () => {
+        // Коэффициенты
+        const forBackground = 30
+
+        // Скорость анимации
+        const speed = 0.05
+
+        // Объявление переменных
+        let positionX = 0, positionY = 0
+        let coordXprocent = 0, coordYprocent = 0
+
+        const setMouseParallaxStyle = () => {
+            const distX = coordXprocent - positionX;
+            const distY = coordYprocent - positionY;
+
+            positionX = positionX + (distX * speed)
+            positionY = positionY + (distY * speed)
+
+            // Передаем стили
+            parallax.style.cssText = `transform: translate(${positionX / forBackground}%, ${positionY / forBackground}%);`
+            requestAnimationFrame(setMouseParallaxStyle)
+        }
+
+        setMouseParallaxStyle()
+        document.querySelector('.background').addEventListener('mousemove', (e) => {
+            // Получение ширины и высоты блока
+            const parallaxWidth = parallax.offsetWidth
+            const parallaxHeight = parallax.offsetHeight
+
+            // Ноль по середине
+            const coordX = e.pageX - parallaxWidth / 2;
+            const coordY = e.pageY - parallaxHeight / 2;
+
+            //Получаем проценты
+            coordXprocent = coordX / parallaxWidth * 100
+            coordYprocent = coordY / parallaxHeight * 100
+        })
+    })
+}   

@@ -57,6 +57,7 @@
     height: 72px;
     color: white;
     width: 100%;
+    z-index: 99999;
     &:hover {
       box-shadow: 0px 0px 9px 7px rgba(255, 14, 21, 0.4);
     }
